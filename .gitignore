@@ -40,13 +40,15 @@ Thumbs.db
 *.exe
 *.war
 
-# Large media files
+# Large media files (block by default, allow in site assets)
 *.mp4
 *.tiff
 *.avi
 *.flv
 *.mov
 *.wmv
+!assets/**/*.mp4
+!assets/**/*.mov
 
 # Claude Code local settings
 .claude/
