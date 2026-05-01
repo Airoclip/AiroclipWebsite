@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Careers — Airoclip</title>
+<meta name="description" content="Join Airoclip — help build AI-powered casual puzzle games for global audiences. Open roles in Bengaluru." />
+<link rel="icon" type="image/png" href="assets/airoclip-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/shared.css" />
+<link rel="stylesheet" href="styles/adaptive.css" />
+
+<style>
+  body { background: #07070a; }
+  .careers-hero { padding: 100px 40px 60px; }
+  .careers-hero .inner { max-width: 1280px; margin: 0 auto; }
+  .careers-hero h1 { font-size: clamp(48px, 6.5vw, 96px); line-height: 0.98; letter-spacing: -0.035em; font-family: 'Instrument Serif', serif; font-weight: 400; max-width: 1100px; color: #fff; }
+  .careers-hero h1 i { color: #6f8bff; font-style: italic; }
+  .careers-hero p { margin-top: 28px; max-width: 620px; font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.72); }
+
+  .values { padding: 60px 40px 100px; }
+  .values .inner { max-width: 1280px; margin: 0 auto; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+  .value { padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; }
+  .value .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #6f8bff; letter-spacing: 0.14em; }
+  .value h3 { font-family: 'Instrument Serif', serif; font-size: 26px; line-height: 1.1; letter-spacing: -0.02em; margin: 14px 0 10px; color: #fff; }
+  .value p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+  .roles-section { padding: 80px 40px 120px; background: #0a0a12; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .roles-section .inner { max-width: 1280px; margin: 0 auto; }
+  .roles-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; }
+  .roles-head h2 { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: -0.03em; line-height: 1.04; font-weight: 400; color: #fff; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; font-family: 'Inter Tight', sans-serif; }
+  .filter { padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-size: 13px; cursor: pointer; transition: all 0.18s; color: rgba(255,255,255,0.78); background: transparent; }
+  .filter:hover { border-color: #6f8bff; color: #6f8bff; }
+  .filter.active { background: #1a40e8; color: #fff; border-color: #1a40e8; }
+
+  .role-card { display: grid; grid-template-columns: 2fr 1fr 1fr 32px; align-items: center; padding: 24px 28px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 10px; transition: all 0.2s; cursor: pointer; }
+  .role-card:hover { border-color: #6f8bff; transform: translateX(4px); background: rgba(255,255,255,0.06); }
+  .role-card .rt { font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 500; color: #fff; }
+  .role-card .rd { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+  .role-card .rl, .role-card .rT { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.55); }
+  .role-card .ra { color: #6f8bff; font-size: 18px; }
+
+  .perks { padding: 100px 40px; background: #07070a; color: #fff; }
+  .perks .inner { max-width: 1280px; margin: 0 auto; }
+  .perks h2 { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 400; line-height: 1.04; letter-spacing: -0.03em; max-width: 800px; }
+  .perks h2 em { color: #6f8bff; font-style: italic; }
+  .perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); margin-top: 56px; border-radius: 14px; overflow: hidden; }
+  .perk { padding: 32px 28px; background: #0a0a12; }
+  .perk h4 { font-family: 'Inter Tight', sans-serif; font-size: 17px; font-weight: 500; margin-bottom: 10px; }
+  .perk p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .perk .ico { width: 36px; height: 36px; border-radius: 8px; background: rgba(111,139,255,0.18); color: #6f8bff; display: grid; place-items: center; margin-bottom: 18px; }
+
+  @media (max-width: 900px) {
+    .careers-hero, .values, .roles-section, .perks { padding: 60px 24px; }
+    .values-grid, .perks-grid { grid-template-columns: 1fr 1fr; }
+    .role-card { grid-template-columns: 1fr; gap: 8px; }
+    .role-card .ra { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="components/shared.jsx"></script>
+
+<script type="text/babel">
+const ROLES = [
+  { t: "Senior Game Designer", d: "Drive the design of our next casual puzzle title from prototype to soft launch.", team: "Design", loc: "Bengaluru" },
+  { t: "ML Engineer, Personalization", d: "Build and ship the models behind our adaptive content engine.", team: "Engineering", loc: "Bengaluru" },
+  { t: "Live Ops Producer", d: "Plan and run global live events, monetization moments and content drops.", team: "Live Ops", loc: "Bengaluru" },
+  { t: "2D Artist · Casual", d: "Craft warm, characterful art for puzzle worlds with millions of players.", team: "Art", loc: "Bengaluru / Remote" },
+  { t: "Data Analyst, Live Games", d: "Turn billions of player events into actionable insight for design and ops.", team: "Data", loc: "Bengaluru" },
+  { t: "Unity Engineer", d: "Build the runtime that makes our adaptive systems feel native to players.", team: "Engineering", loc: "Bengaluru" },
+  { t: "User Acquisition Manager", d: "Scale our paid growth across the US, EU and emerging markets.", team: "Marketing", loc: "Bengaluru" },
+  { t: "Narrative Designer", d: "Write branching narratives that adapt to how each player plays.", team: "Design", loc: "Bengaluru / Remote" },
+];
+
+function Careers() {
+  const [filter, setFilter] = React.useState('All');
+  const teams = ['All', ...Array.from(new Set(ROLES.map(r => r.team)))];
+  const filtered = filter === 'All' ? ROLES : ROLES.filter(r => r.team === filter);
+
+  return (
+    <div className="adaptive">
+      <nav className="nav">
+        <a href="index.html" className="nav-logo">
+          <span className="mark"><AiroLogoMark size={16} /></span>
+          <span>airoclip</span>
+        </a>
+        <div className="nav-links">
+          <a href="index.html#tech">Technology</a>
+          <a href="index.html#games">Games</a>
+          <a href="index.html#investors">Investors</a>
+          <a href="careers.html" style={{color: '#6f8bff'}}>Careers</a>
+        </div>
+        <div>
+          <a href="#roles" className="btn btn-primary">See open roles →</a>
+        </div>
+      </nav>
+
+      <section className="careers-hero">
+        <div className="inner">
+          <div className="hero-meta" style={{marginBottom: 28}}>
+            <span className="dot"></span>
+            <span>WE'RE HIRING · BENGALURU & REMOTE</span>
+          </div>
+          <h1>Build games that <i>millions of people</i> love.</h1>
+          <p>We're a small, opinionated team building AI-powered casual games for the world. If you care about craft, players, and shipping fast — you'll fit in here.</p>
+          <div style={{marginTop: 32, display: 'flex', gap: 12}}>
+            <a href="#roles" className="btn btn-primary">Open roles →</a>
+            <a href="#values" className="btn btn-ghost">Our values</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="values" id="values">
+        <div className="inner">
+          <div className="eyebrow"><span className="num">01</span> What we believe</div>
+          <h2 style={{fontFamily: 'Instrument Serif, serif', fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-0.03em', lineHeight: 1.05, fontWeight: 400, maxWidth: 800}}>
+            Four things we hire for, in this order.
+          </h2>
+          <div className="values-grid">
+            <div className="value"><div className="num">01</div><h3>Player first</h3><p>Every decision starts with what makes the experience better for the player. Metrics follow craft.</p></div>
+            <div className="value"><div className="num">02</div><h3>Bias for shipping</h3><p>Small bets, fast loops, real player data. Theory lasts a meeting; shipped builds last.</p></div>
+            <div className="value"><div className="num">03</div><h3>Analytical depth</h3><p>We believe creative ambition and rigorous data thinking are the same muscle, not opposites.</p></div>
+            <div className="value"><div className="num">04</div><h3>Global from day one</h3><p>Built in Bengaluru, designed for Berlin, Boston and Bogotá. Cultural relevance is a feature.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="roles-section" id="roles">
+        <div className="inner">
+          <div className="eyebrow"><span className="num">02</span> Open roles</div>
+          <div className="roles-head">
+            <h2>{filtered.length} open role{filtered.length !== 1 ? 's' : ''}</h2>
+            <div className="filters">
+              {teams.map(t => (
+                <button key={t} className={`filter ${filter === t ? 'active' : ''}`} onClick={() => setFilter(t)}>{t}</button>
+              ))}
+            </div>
+          </div>
+          <div>
+            {filtered.map((r, i) => (
+              <a key={i} href="#" className="role-card">
+                <div>
+                  <div className="rt">{r.t}</div>
+                  <div className="rd">{r.d}</div>
+                </div>
+                <div className="rT">{r.team}</div>
+                <div className="rl">{r.loc} · Full-time</div>
+                <div className="ra">→</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="perks">
+        <div className="inner">
+          <div className="eyebrow" style={{color:'rgba(255,255,255,0.5)'}}><span style={{color:'#6f8bff'}}>03</span> What we offer</div>
+          <h2>Compensation, ownership and a real say in <em>what we build.</em></h2>
+          <div className="perks-grid">
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 2v20M5 8h11a3 3 0 010 6H7a3 3 0 000 6h12"/></svg></div>
+              <h4>Top-of-market pay</h4>
+              <p>Cash and meaningful equity. We pay for senior craft.</p>
+            </div>
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+              <h4>Direct access</h4>
+              <p>Small team — no bureaucracy between you and the players.</p>
+            </div>
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <h4>Flexible hours</h4>
+              <p>Work when you do your best work. Async by default.</p>
+            </div>
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+              <h4>Health & family</h4>
+              <p>Comprehensive health insurance for you and your dependents.</p>
+            </div>
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M2 3h20M2 21h20M5 3l1 18M19 3l-1 18M9 3v18M15 3v18"/></svg></div>
+              <h4>Best-in-class kit</h4>
+              <p>The hardware, software and tools you need to ship great work.</p>
+            </div>
+            <div className="perk">
+              <div className="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+              <h4>Real ownership</h4>
+              <p>Stock options for every full-time hire. Builders own what they build.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer (minimal, reuses adaptive) */}
+      <footer className="footer">
+        <div className="footer-inner">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a href="index.html" className="nav-logo">
+                <span className="mark"><AiroLogoMark size={16} /></span>
+                <span>airoclip</span>
+              </a>
+              <p>Crafting personalized gaming experiences. AI-powered casual puzzle games, built from Bengaluru.</p>
+              <div className="footer-socials" style={{marginTop: 20}}>
+                <a href="#" aria-label="X"><Social.X /></a>
+                <a href="#" aria-label="LinkedIn"><Social.In /></a>
+                <a href="#" aria-label="YouTube"><Social.Yt /></a>
+                <a href="#" aria-label="Instagram"><Social.Ig /></a>
+              </div>
+            </div>
+            <div className="footer-col"><h5>Studio</h5>
+              <a href="index.html#tech">Technology</a>
+              <a href="index.html#games">Games</a>
+              <a href="index.html#investors">Investors</a>
+              <a href="careers.html">Careers</a>
+            </div>
+            <div className="footer-col"><h5>Games</h5>
+              <a href="games/hexa-dreams.html">Hexa Dreams</a>
+              <a href="games/tap-hexa.html">Tap Hexa</a>
+              <a href="#">Press kit</a>
+            </div>
+            <div className="footer-col"><h5>Company</h5>
+              <a href="#">About</a>
+              <a href="mailto:info@airoclip.com">Contact</a>
+              <a href="mailto:info@airoclip.com">Press</a>
+            </div>
+            <div className="footer-col"><h5>Legal</h5>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms of Service</a>
+              <a href="ads.txt">ads.txt</a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <div>© 2025 Airoclip Technologies Pvt. Ltd. — Bengaluru, India</div>
+            <div className="footer-legal">
+              <a href="privacy.html">Privacy</a>
+              <a href="terms.html">Terms</a>
+              <a href="mailto:info@airoclip.com">info@airoclip.com</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Careers />);
+</script>
+</body>
+</html>
