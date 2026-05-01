@@ -14,7 +14,7 @@
   --brand: #1a40e8;
   --brand-text: #6f8bff;
   --brand-soft: rgba(26, 64, 232, 0.18);
-  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
   min-height: 100%;
@@ -23,21 +23,27 @@
 .adaptive h1, .adaptive h2, .adaptive h3 { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.02em; }
 .adaptive .sans-h { font-family: 'Inter Tight', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
 
-/* Nav */
+/* Nav — visually aligned with .studio .nav for cross-page consistency */
 .adaptive .nav {
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(7,7,10,0.78);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  padding: 18px 40px;
+  background: rgba(7,7,10,0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom: 1px solid var(--line);
 }
-.adaptive .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 17px; letter-spacing: -0.02em; font-family: 'Inter Tight', sans-serif; }
-.adaptive .nav-logo .mark { width: 26px; height: 26px; border-radius: 6px; background: var(--brand); display: grid; place-items: center; }
-.adaptive .nav-logo .mark svg { width: 16px; height: 16px; }
-.adaptive .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); }
-.adaptive .nav-links a:hover { color: var(--brand-text); }
+.adaptive .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; font-family: 'Space Grotesk', sans-serif; color: #fff; }
+.adaptive .nav-logo .mark { width: 28px; height: 28px; border-radius: 7px; background: var(--brand); display: grid; place-items: center; overflow: hidden; }
+.adaptive .nav-logo .mark img, .adaptive .nav-logo .mark svg { width: 18px; height: 18px; display: block; }
+.adaptive .nav-links { display: flex; gap: 28px; font-size: 14px; color: rgba(255,255,255,0.6); }
+.adaptive .nav-links a { transition: color 0.15s; }
+.adaptive .nav-links a:hover { color: #fff; }
+.adaptive .nav-links a.active { color: #6f8bff; }
+@media (max-width: 760px) {
+  .adaptive .nav { padding: 14px 20px; }
+  .adaptive .nav-links { display: none; }
+}
 
 /* Buttons */
 .adaptive .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.18s ease; }
