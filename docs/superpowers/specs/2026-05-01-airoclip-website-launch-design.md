@@ -76,7 +76,8 @@ These are Claude.ai authoring artifacts or other-direction code, not used in pro
 - `design-canvas.jsx`
 - `Airoclip Site (standalone).html` (2.2MB self-contained version with all 3 directions, was for sharing/preview)
 - `Airoclip Site.html` (the full multi-direction switcher version, replaced by the cleaned `index.html`)
-- `uploads/` — appears to be working-files/screenshots from the Claude.ai authoring session, not needed in the live site. Verify before deleting; move anything still needed into `assets/`.
+
+`uploads/` is **kept** in the repo (small files, may be useful later). Files there aren't linked from any page, so they won't ship to visitors — they just live in the repo.
 
 ## Files to modify
 
@@ -147,11 +148,11 @@ No build step, no deploy command, no AWS console.
 
 - **Restyle careers/privacy/terms to Studio dark:** yes (approved with spec)
 - **Source repo:** Bitbucket for Phase 1, GitHub for Phase 2
+- **`uploads/` folder:** keep as-is in the repo
 
 ## Open questions / decisions for user
 
-1. **`uploads/` directory** — anything in there that needs to stay live, or can it all be deleted? It looks like authoring scratch files (screenshots, xlsx coverage reports).
-2. **Bitbucket repo** — does one already exist, or do we need to create it? (Workspace/repo name?)
+1. **Bitbucket repo URL** — needed at the end of Phase 1 when we push. Can be answered then.
 
 ## Risks / things to verify
 
