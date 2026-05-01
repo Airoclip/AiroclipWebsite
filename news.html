@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>News — Airoclip</title>
+<meta name="description" content="Press coverage and news featuring Airoclip — AI-powered casual gaming studio based in Bengaluru." />
+<link rel="icon" type="image/png" href="assets/airoclip-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/shared.css" />
+<link rel="stylesheet" href="styles/studio.css" />
+
+<style>
+  body { background: #07070a; }
+
+  .news-page { min-height: 100vh; }
+
+  /* Top nav (matches studio.jsx) */
+  .news-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(7,7,10,0.7); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+  }
+  .news-nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; color: #fff; }
+  .news-nav .brand .mark { width: 28px; height: 28px; border-radius: 7px; background: #1a40e8; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 14px; }
+  .news-nav .links { display: flex; gap: 28px; font-size: 14px; }
+  .news-nav .links a { color: rgba(255,255,255,0.7); transition: color .15s; }
+  .news-nav .links a:hover, .news-nav .links a.active { color: #fff; }
+  .news-nav .back { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .news-nav .back:hover { color: #fff; }
+  @media (max-width: 760px) {
+    .news-nav { padding: 14px 20px; }
+    .news-nav .links { display: none; }
+  }
+
+  /* Hero */
+  .news-hero {
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 40px 40px;
+    color: #fff;
+  }
+  .news-hero .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .news-hero .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #1a40e8; box-shadow: 0 0 12px #1a40e8; }
+  .news-hero h1 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(44px, 6.4vw, 84px);
+    line-height: 1.02; letter-spacing: -0.03em;
+    margin-top: 18px;
+    text-wrap: pretty;
+  }
+  .news-hero h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; font-weight: 400;
+    color: #4d6dff;
+  }
+  .news-hero .lede {
+    margin-top: 26px;
+    max-width: 640px;
+    font-size: 18px; line-height: 1.55;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Featured lead */
+  .news-lead {
+    max-width: 1280px; margin: 24px auto 56px; padding: 0 40px;
+  }
+  .news-lead a {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    border-radius: 22px; overflow: hidden;
+    background: linear-gradient(135deg, #0c1846 0%, #1a40e8 100%);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .news-lead a:hover { transform: translateY(-3px); box-shadow: 0 30px 80px -20px rgba(26,64,232,0.5); }
+  .news-lead .lead-text { padding: 56px 56px; }
+  .news-lead .lead-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    display: flex; gap: 14px; align-items: center;
+  }
+  .news-lead .lead-meta .pill { background: rgba(255,255,255,0.18); padding: 4px 10px; border-radius: 999px; }
+  .news-lead h2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.08; letter-spacing: -0.02em;
+    margin-top: 18px; text-wrap: pretty;
+  }
+  .news-lead p {
+    margin-top: 16px;
+    font-size: 16px; line-height: 1.55;
+    color: rgba(255,255,255,0.82);
+    max-width: 540px;
+  }
+  .news-lead .lead-arrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 28px; padding: 11px 18px;
+    border-radius: 999px;
+    background: #fff; color: #0c1846;
+    font-size: 14px; font-weight: 500;
+  }
+  .news-lead .lead-art {
+    position: relative; min-height: 360px;
+    background:
+      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.18) 0%, transparent 50%),
+      radial-gradient(circle at 30% 70%, rgba(77,109,255,0.4) 0%, transparent 60%);
+    overflow: hidden;
+  }
+  .news-lead .lead-art .pub-mono {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 90px; font-weight: 700; letter-spacing: -0.04em;
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .news-lead .lead-art .pub-mono .small {
+    font-size: 14px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .news-lead .lead-art .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 70%);
+  }
+
+  @media (max-width: 900px) {
+    .news-lead a { grid-template-columns: 1fr; }
+    .news-lead .lead-text { padding: 36px 28px; }
+    .news-lead .lead-art { min-height: 220px; order: -1; }
+    .news-lead .lead-art .pub-mono { font-size: 56px; }
+  }
+
+  /* Reel */
+  .news-reel-section {
+    max-width: 1280px; margin: 0 auto; padding: 24px 40px 100px;
+  }
+  .reel-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 28px; gap: 24px; flex-wrap: wrap;
+  }
+  .reel-head h3 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    color: #fff; font-size: 26px; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .reel-head .reel-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .news-reel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .news-card {
+    display: flex; flex-direction: column;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    color: #fff;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    min-height: 380px;
+  }
+  .news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .news-card .pub-banner {
+    height: 140px;
+    display: grid; place-items: center;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .news-card .pub-banner .pubname {
+    position: relative; z-index: 1;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    line-height: 1;
+  }
+  .news-card .pub-banner .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.4;
+  }
+
+  /* Per-publication banner styling */
+  .pub-mobidictum { background: #ffffff; }
+  .pub-mobidictum .pubname { color: #000; font-family: 'Space Grotesk', sans-serif; font-weight: 800; letter-spacing: 0.04em; }
+  .pub-mobidictum .pubname b { color: #ed1c24; font-weight: 800; }
+
+  .pub-pocketgamer { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); }
+  .pub-pocketgamer .pubname { color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 800; letter-spacing: 0.02em; }
+  .pub-pocketgamer .pubname .biz { color: #ff7a00; font-size: 14px; font-weight: 700; }
+
+  .pub-entrepreneur { background: #fafaf6; }
+  .pub-entrepreneur .pubname { color: #000; font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; font-style: italic; font-size: 34px; }
+
+  .pub-moneycontrol { background: #ffffff; }
+  .pub-moneycontrol .pubname-stack {
+    position: relative; z-index: 1;
+    display: inline-flex; border-radius: 6px; overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 22px; letter-spacing: -0.01em;
+  }
+  .pub-moneycontrol .pubname-stack .a { background: #6abf3a; color: #fff; padding: 10px 14px; }
+  .pub-moneycontrol .pubname-stack .b { background: #1a4ba0; color: #fff; padding: 10px 14px; }
+
+  .news-card .body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+  .news-card .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 12px;
+  }
+  .news-card .meta .pub { color: rgba(255,255,255,0.85); }
+  .news-card h4 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 19px; line-height: 1.3; letter-spacing: -0.01em;
+    color: #fff;
+    text-wrap: pretty;
+  }
+  .news-card .summary {
+    margin-top: 12px;
+    font-size: 14px; line-height: 1.55;
+    color: rgba(255,255,255,0.65);
+    flex: 1;
+  }
+  .news-card .read-more {
+    margin-top: 18px;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; color: #4d6dff;
+  }
+  .news-card .read-more svg { transition: transform .2s; }
+  .news-card:hover .read-more svg { transform: translateX(3px); }
+
+  /* All coverage list */
+  .all-coverage {
+    max-width: 1280px; margin: 0 auto; padding: 16px 40px 40px;
+  }
+  .all-coverage .head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 24px; gap: 24px; flex-wrap: wrap;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .all-coverage h3 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    color: #fff; font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .all-coverage .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .coverage-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .coverage-row {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    transition: background .15s ease, padding .15s ease;
+  }
+  .coverage-row:hover { background: rgba(255,255,255,0.03); padding-left: 14px; padding-right: 14px; }
+  .coverage-row .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    font-variant-numeric: tabular-nums;
+  }
+  .coverage-row .pub {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 16px; font-weight: 500; letter-spacing: -0.005em;
+    color: rgba(255,255,255,0.92);
+  }
+  .coverage-row .domain {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.42);
+    margin-top: 3px; letter-spacing: 0.02em;
+  }
+  .coverage-row .arrow {
+    color: rgba(255,255,255,0.4);
+    transition: transform .2s ease, color .2s ease;
+  }
+  .coverage-row:hover .arrow { color: #4d6dff; transform: translateX(3px); }
+
+  /* alternating column dividers */
+  @media (min-width: 760px) {
+    .coverage-list .coverage-row:nth-child(odd) {
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding-right: 24px;
+    }
+    .coverage-list .coverage-row:nth-child(even) {
+      padding-left: 24px;
+    }
+    .coverage-list .coverage-row:nth-child(odd):hover { padding-right: 34px; }
+    .coverage-list .coverage-row:nth-child(even):hover { padding-left: 34px; }
+  }
+  @media (max-width: 760px) {
+    .all-coverage { padding: 16px 20px 32px; }
+    .coverage-list { grid-template-columns: 1fr; }
+    .coverage-row { grid-template-columns: 36px 1fr auto; gap: 14px; padding: 16px 4px; }
+    .coverage-row .pub { font-size: 15px; }
+  }
+
+  /* Press contact */
+  .press-contact {
+    max-width: 1280px; margin: 0 auto; padding: 40px 40px 100px;
+  }
+  .press-contact .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 36px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .press-contact h4 { color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; }
+  .press-contact p { color: rgba(255,255,255,0.65); margin-top: 6px; font-size: 14px; max-width: 520px; }
+  .press-contact a.cta {
+    background: #fff; color: #07070a; padding: 12px 22px; border-radius: 999px;
+    font-size: 14px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  /* Footer */
+  .news-footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 32px 40px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .news-footer a { color: rgba(255,255,255,0.6); margin-left: 18px; }
+  .news-footer a:hover { color: #fff; }
+</style>
+</head>
+<body>
+<div class="news-page studio">
+
+  <nav class="news-nav">
+    <a href="index.html" class="brand">
+      <span class="mark">A</span>
+      <span>Airoclip</span>
+    </a>
+    <div class="links">
+      <a href="index.html#tech">Technology</a>
+      <a href="index.html#games">Games</a>
+      <a href="index.html#investors">Investors</a>
+      <a href="news.html" class="active">News</a>
+      <a href="https://app.dover.com/jobs/airoclip" target="_blank" rel="noopener">Careers</a>
+    </div>
+    <a href="index.html" class="back">← Back to site</a>
+  </nav>
+
+  <header class="news-hero">
+    <div class="eyebrow"><span class="dot"></span><span>Press &amp; News</span><span style="opacity:.5">·</span><span>Updated October 2025</span></div>
+    <h1>Airoclip in <em>the press.</em></h1>
+    <p class="lede">
+</p>
+  </header>
+
+  <!-- FEATURED -->
+  <section class="news-lead">
+    <a href="https://mobidictum.com/airoclip-2-75m-seed-round-t-accelerate-capital/" target="_blank" rel="noopener">
+      <div class="lead-text">
+        <div class="lead-meta">
+          <span class="pill">Featured</span>
+          <span>Mobidictum</span>
+          <span>·</span>
+          <span>Oct 14, 2025</span>
+        </div>
+        <h2>Airoclip raises $2.75M seed round led by T-Accelerate Capital, co-led by BITKRAFT &amp; Centre Court</h2>
+        <p>The Bengaluru-based AI-powered gaming studio will use the capital to scale its proprietary game personalization technology and grow teams across game development, data, design and marketing.</p>
+        <span class="lead-arrow">Read on Mobidictum <span aria-hidden="true">→</span></span>
+      </div>
+      <div class="lead-art">
+        <div class="grid-bg"></div>
+        <div class="pub-mono">
+          <div style="text-align:center">
+            <span class="small">Featured on</span>
+            <span style="display:block; font-style: italic;">$2.75M</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- REEL -->
+  <section class="news-reel-section">
+    <div class="reel-head">
+      <h3>More coverage</h3>
+      <span class="reel-meta">Featured · 32 stories total</span>
+    </div>
+
+    <div class="news-reel">
+
+      <a href="https://mobidictum.com/airoclip-2-75m-seed-round-t-accelerate-capital/" target="_blank" rel="noopener" class="news-card">
+        <div class="pub-banner pub-mobidictum">
+          <div class="grid-bg"></div>
+          <div class="pubname">M<b>O</b>BIDICTUM</div>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="pub">Mobidictum</span><span>·</span><span>Oct 14, 2025</span></div>
+          <h4>AI-powered gaming studio Airoclip raises $2.75M seed round led by T-Accelerate Capital</h4>
+          <p class="summary">A deep-dive on Airoclip's seed round and the studio's adaptive-puzzle thesis — featuring perspectives from co-founders Naga Rohith Anisetty and Pruthvi Sai Y.</p>
+          <span class="read-more">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://www.pocketgamer.biz/airoclip-raises-275m-in-seed-round-to-make-ai-powered-puzzle-games/" target="_blank" rel="noopener" class="news-card">
+        <div class="pub-banner pub-pocketgamer">
+          <div class="grid-bg"></div>
+          <div class="pubname">PocketGamer<span class="biz">.biz</span></div>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="pub">PocketGamer.biz</span><span>·</span><span>Oct 14, 2025</span></div>
+          <h4>Airoclip raises $2.75m in seed round to make AI-powered puzzle games</h4>
+          <p class="summary">PocketGamer covers the round, Airoclip's 300K+ installs across Tap Hexa and Hexa Dreams, and the studio's plans to build premium personalized puzzle titles for global players.</p>
+          <span class="read-more">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://www.entrepreneur.com/en-in/news-and-trends/airoclip-bags-275mn-seed-round-from-t-accelerate-capital/498291" target="_blank" rel="noopener" class="news-card">
+        <div class="pub-banner pub-entrepreneur">
+          <div class="grid-bg"></div>
+          <div class="pubname">Entrepreneur</div>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="pub">Entrepreneur</span><span>·</span><span>Oct 15, 2025</span></div>
+          <h4>Airoclip secures $2.75M seed funding to redefine AI-powered casual games</h4>
+          <p class="summary">A look at how Airoclip plans to use the capital — proprietary personalization tech, global go-to-market, and live ops scaling — and what it signals for India's gaming ecosystem.</p>
+          <span class="read-more">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://www.moneycontrol.com/news/business/startup/ai-powered-gaming-studio-airoclip-bags-2-75-million-from-t-accelerate-capital-centre-court-capital-bitkraft-13615077.html" target="_blank" rel="noopener" class="news-card">
+        <div class="pub-banner pub-moneycontrol">
+          <div class="grid-bg"></div>
+          <div class="pubname-stack">
+            <span class="a">money</span><span class="b">control</span>
+          </div>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="pub">Moneycontrol</span><span>·</span><span>Oct 14, 2025</span></div>
+          <h4>Bengaluru-based Airoclip raises $2.75M led by T-Accelerate Capital</h4>
+          <p class="summary">Moneycontrol's startup desk reports on the round, the investor lineup, and Airoclip's positioning at the intersection of AI personalization and casual mobile gaming.</p>
+          <span class="read-more">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ALL COVERAGE -->
+  <section class="all-coverage">
+    <div class="head">
+      <h3>Full press coverage</h3>
+      <span class="meta">28 additional stories</span>
+    </div>
+    <div class="coverage-list">
+
+      <a href="https://www.vccircle.com/speakxairbound-airoclip-others-raise-early-stage-funding" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">01</span>
+        <span><span class="pub">Mint VC Circle</span><span class="domain">vccircle.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.bwdisrupt.com/article/airoclip-bags-2-75-mn-seed-funding-from-t-accelerate-centre-court-capital-bitkraft-575433" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">02</span>
+        <span><span class="pub">BW Disrupt</span><span class="domain">bwdisrupt.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.bwhindi.com/business-news/airoclip-raised-275-million-preparing-to-create-a-world-class-ai-powered-gaming-experience-from-india-67614.html/amp" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">03</span>
+        <span><span class="pub">BW Hindi</span><span class="domain">bwhindi.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://europeangaming.eu/portal/latest-news/2025/10/14/193886/airoclip-raises-2-75m-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">04</span>
+        <span><span class="pub">European Gaming</span><span class="domain">europeangaming.eu</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://startupnews.fyi/2025/10/14/airoclip-raises-2-75-mn-in-seed-round-led-by-t-accelerate-capital/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">05</span>
+        <span><span class="pub">Startup News</span><span class="domain">startupnews.fyi</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://startupbydoc.com/airoclip-raises-2-75-million-seed-funding-to-build-adaptive-gaming-experiences/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">06</span>
+        <span><span class="pub">StartupByDoc</span><span class="domain">startupbydoc.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.indianstartuptimes.com/investment/airoclip-secures-2-75-million-seed-funding-to-advance-ai-powered-game-personalization/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">07</span>
+        <span><span class="pub">Indian Startup Times</span><span class="domain">indianstartuptimes.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://startuptalky.com/news/daily-indian-funding-roundup-key-news-14-october-2025/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">08</span>
+        <span><span class="pub">Startup Talky</span><span class="domain">startuptalky.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.ceovine.com/airoclip-raises-2-75-million-seed-funding/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">09</span>
+        <span><span class="pub">CEO Vine</span><span class="domain">ceovine.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://indianstartupnews.com/funding/ai-powered-gaming-startup-airoclip-raises-275-million-from-tac-centre-court-capital-bitkraft-10560855" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">10</span>
+        <span><span class="pub">Indian Startup News</span><span class="domain">indianstartupnews.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.cxodigitalpulse.com/ai-driven-gaming-studio-airoclip-secures-2-75-million-seed-funding-to-redefine-personalized-play/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">11</span>
+        <span><span class="pub">CXO Digital Pulse</span><span class="domain">cxodigitalpulse.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.exchange4media.com/industry-briefing-news/airoclip-raises-275m-in-seed-round-148391.html" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">12</span>
+        <span><span class="pub">Exchange4Media</span><span class="domain">exchange4media.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://entrackr.com/snippets/airoclip-raises-275-mn-in-seed-round-led-by-t-accelerate-capital-10560589" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">13</span>
+        <span><span class="pub">Entrackr</span><span class="domain">entrackr.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.localsamosa.com/news/airoclip-seed-round-funding-10560075" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">14</span>
+        <span><span class="pub">LocalSamosa</span><span class="domain">localsamosa.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.apnnews.com/airoclip-raises-2-75m-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">15</span>
+        <span><span class="pub">APN News</span><span class="domain">apnnews.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.indianweb2.com/2025/10/airoclip-lands-275m-to-fuse-generative.html" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">16</span>
+        <span><span class="pub">Indianweb2</span><span class="domain">indianweb2.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://medial.app/news/airoclip-raises-dollar275-mn-in-seed-round-led-by-t-accelerate-capital-564ddfa43f490" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">17</span>
+        <span><span class="pub">Medial</span><span class="domain">medial.app</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://businessnewsthisweek.com/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">18</span>
+        <span><span class="pub">Business News This Week</span><span class="domain">businessnewsthisweek.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.shreyassolutions.com/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">19</span>
+        <span><span class="pub">Shreyas Solutions</span><span class="domain">shreyassolutions.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://sportsz.news/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">20</span>
+        <span><span class="pub">SportszNews</span><span class="domain">sportsz.news</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://smartbusinesnews.com/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">21</span>
+        <span><span class="pub">Smart Business News</span><span class="domain">smartbusinesnews.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://mediabulletins.com/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">22</span>
+        <span><span class="pub">Media Bulletins</span><span class="domain">mediabulletins.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://onlinemediacafe.com/business/airoclip-raises-two-million-seven-hundred-fifty-thousand-dollar-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">23</span>
+        <span><span class="pub">Online Media Cafe</span><span class="domain">onlinemediacafe.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://isrch.com/2025/10/14/airoclip-raises-usd-2-75m-seed-round-led-by-t-accelerate-capital-and-co-led-by-centre-court-capital-and-bitkraft-ventures/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">24</span>
+        <span><span class="pub">Isrch</span><span class="domain">isrch.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.marcamoney.com/airoclip-raises-2-75-million-in-seed-funding-led-by-t-accelerate-capital/" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">25</span>
+        <span><span class="pub">MarcaMoney</span><span class="domain">marcamoney.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.msn.com/en-in/money/news/airoclip-secures-275m-seed-funding-for-adaptive-puzzle-games/ar-AA1OqCRB?ocid=BingNewsSerp" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">26</span>
+        <span><span class="pub">MSN</span><span class="domain">msn.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://www.ciol.com/funding-acquistion-merger/airoclip-secures-275m-seed-funding-for-adaptive-puzzle-games-10560595" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">27</span>
+        <span><span class="pub">CIOL</span><span class="domain">ciol.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+      <a href="https://viestories.com/funding-alert/gaming-studio-airoclip-raises-275-mn-in-seed-round-10560755" target="_blank" rel="noopener" class="coverage-row">
+        <span class="num">28</span>
+        <span><span class="pub">VIE Stories</span><span class="domain">viestories.com</span></span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PRESS CONTACT -->
+  <section class="press-contact">
+    <div class="card">
+      <div>
+        <h4>Press inquiries</h4>
+        <p>For interviews, assets, fact-checks or partnership stories, reach our team directly. We typically respond within one business day.</p>
+      </div>
+      <a href="mailto:info@airoclip.com" class="cta">
+        info@airoclip.com
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="news-footer">
+    <div>© 2025 Airoclip Technologies Pvt. Ltd. — Bengaluru, India</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:info@airoclip.com">info@airoclip.com</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

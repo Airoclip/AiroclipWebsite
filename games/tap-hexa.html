@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tap Hexa — Airoclip</title>
+<meta name="description" content="Tap Hexa — a snappy hex tapper that adapts to how you play. By Airoclip." />
+<link rel="icon" type="image/png" href="../assets/airoclip-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/shared.css" />
+<link rel="stylesheet" href="../styles/adaptive.css" />
+<style>
+  body { background: #fafaf7; }
+  .game-hero { padding: 80px 40px; background: linear-gradient(135deg, #0a1f4a 0%, #1a40e8 50%, #5b3ee8 100%); color: #fff; }
+  .game-hero .inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .game-hero .gm { display: flex; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+  .game-hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(56px, 8vw, 120px); line-height: 0.96; letter-spacing: -0.03em; font-weight: 400; }
+  .game-hero p { color: rgba(255,255,255,0.85); margin-top: 24px; max-width: 540px; font-size: 18px; line-height: 1.55; }
+  .game-hero .stats { display: flex; gap: 36px; margin-top: 40px; }
+  .game-hero .stats .v { font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 1; letter-spacing: -0.02em; }
+  .game-hero .stats .l { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); margin-top: 6px; }
+  .game-hero .ca { margin-top: 36px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .store-btn-l { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; border-radius: 12px; background: #000; color: #fff; border: 1px solid rgba(255,255,255,0.18); font-size: 14px; font-weight: 500; }
+  .store-btn-l small { display: block; font-size: 10px; opacity: 0.7; }
+  .game-art-big { aspect-ratio: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; display: grid; place-items: center; backdrop-filter: blur(8px); }
+
+  .features { padding: 100px 40px; }
+  .features .inner { max-width: 1280px; margin: 0 auto; }
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .feat { padding: 32px; background: #fff; border: 1px solid rgba(15,15,20,0.08); border-radius: 16px; }
+  .feat .pn { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #1a40e8; letter-spacing: 0.14em; }
+  .feat h3 { font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1.1; margin: 16px 0 12px; }
+  .feat p { color: #6b6b78; font-size: 15px; line-height: 1.55; }
+
+  .gallery { padding: 0 40px 100px; }
+  .gallery .inner { max-width: 1280px; margin: 0 auto; }
+  .shot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+  .shot { aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; }
+  .shot.s1 { background: linear-gradient(180deg, #1a0a3a 0%, #5b2ee8 100%); }
+  .shot.s2 { background: linear-gradient(180deg, #0a1f4a 0%, #1a40e8 100%); }
+  .shot.s3 { background: linear-gradient(180deg, #4d1a63 0%, #ff3d8a 100%); }
+  .shot.s4 { background: linear-gradient(180deg, #1a4d63 0%, #3dffd6 100%); }
+  .shot .lbl { position: absolute; bottom: 14px; left: 14px; right: 14px; color: rgba(255,255,255,0.85); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+
+  @media (max-width: 900px) {
+    .game-hero, .features, .gallery { padding: 60px 24px; }
+    .game-hero .inner, .feat-grid, .shot-grid { grid-template-columns: 1fr; }
+    .shot-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="../components/shared.jsx"></script>
+
+<script type="text/babel">
+function GamePage({ title, subtitle, accent, art, stats, features }) {
+  return (
+    <div className="adaptive">
+      <nav className="nav">
+        <a href="../index.html" className="nav-logo">
+          <span className="mark"><AiroLogoMark size={16} /></span>
+          <span>airoclip</span>
+        </a>
+        <div className="nav-links">
+          <a href="../index.html#tech">Technology</a>
+          <a href="../index.html#games" style={{color: '#1a40e8'}}>Games</a>
+          <a href="../index.html#investors">Investors</a>
+          <a href="../careers.html">Careers</a>
+        </div>
+        <div><a href="../careers.html" className="btn btn-primary">We're hiring →</a></div>
+      </nav>
+
+      <section className="game-hero">
+        <div className="inner">
+          <div>
+            <div className="gm">
+              <span style={{color:'#3dffaf'}}>● LIVE</span>
+              <span>Casual puzzle</span>
+              <span>iOS · Android</span>
+              <span>Free to play</span>
+            </div>
+            <h1>{title}</h1>
+            <p>{subtitle}</p>
+            <div className="stats">
+              {stats.map((s, i) => <div key={i}><div className="v">{s.v}</div><div className="l">{s.l}</div></div>)}
+            </div>
+            <div className="ca">
+              <a href="#" className="store-btn-l"><span style={{fontSize:22}}>▶</span><span><small>GET IT ON</small>Google Play</span></a>
+              <a href="#" className="store-btn-l"><span style={{fontSize:22}}></span><span><small>Download on the</small>App Store</span></a>
+            </div>
+          </div>
+          <div className="game-art-big">{art}</div>
+        </div>
+      </section>
+
+      <section className="features">
+        <div className="inner">
+          <div className="eyebrow"><span className="num">01</span> What makes it special</div>
+          <h2 className="section-title" style={{fontFamily:'Instrument Serif, serif', fontWeight:400}}>A puzzler that <em>plays you back.</em></h2>
+          <div className="feat-grid">
+            {features.map((f, i) => (
+              <div key={i} className="feat">
+                <div className="pn">FEATURE 0{i+1}</div>
+                <h3>{f.t}</h3>
+                <p>{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="gallery">
+        <div className="inner">
+          <div className="eyebrow"><span className="num">02</span> Screens</div>
+          <div className="shot-grid">
+            <div className="shot s1"><div className="lbl">main_menu.scn</div></div>
+            <div className="shot s2"><div className="lbl">level_47.scn</div></div>
+            <div className="shot s3"><div className="lbl">story_branch.scn</div></div>
+            <div className="shot s4"><div className="lbl">daily_event.scn</div></div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="footer-inner">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a href="../index.html" className="nav-logo"><span className="mark"><AiroLogoMark size={16} /></span><span>airoclip</span></a>
+              <p>Crafting personalized gaming experiences. AI-powered casual puzzle games, built from Bengaluru.</p>
+              <div className="footer-socials" style={{marginTop: 20}}>
+                <a href="#" aria-label="X"><Social.X /></a>
+                <a href="#" aria-label="LinkedIn"><Social.In /></a>
+                <a href="#" aria-label="YouTube"><Social.Yt /></a>
+                <a href="#" aria-label="Instagram"><Social.Ig /></a>
+              </div>
+            </div>
+            <div className="footer-col"><h5>Studio</h5><a href="../index.html#tech">Technology</a><a href="../index.html#games">Games</a><a href="../index.html#investors">Investors</a><a href="../careers.html">Careers</a></div>
+            <div className="footer-col"><h5>Games</h5><a href="hexa-dreams.html">Hexa Dreams</a><a href="tap-hexa.html">Tap Hexa</a><a href="#">Press kit</a></div>
+            <div className="footer-col"><h5>Company</h5><a href="#">About</a><a href="mailto:info@airoclip.com">Contact</a><a href="mailto:info@airoclip.com">Press</a></div>
+            <div className="footer-col"><h5>Legal</h5><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../ads.txt">ads.txt</a></div>
+          </div>
+          <div className="footer-bottom">
+            <div>© 2025 Airoclip Technologies Pvt. Ltd. — Bengaluru, India</div>
+            <div className="footer-legal"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="mailto:info@airoclip.com">info@airoclip.com</a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const TAP_HEXA = {
+  title: "Tap Hexa",
+  subtitle: "A snappy, bite-sized hex tapper for the everyday commute. Quick to pick up, deep enough to keep coming back to.",
+  art: <img src="../assets/tap-hexa-logo.png" alt="Tap Hexa" style={{maxWidth: '80%', maxHeight: '80%', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))'}} />,
+  stats: [
+    { v: "Live", l: "Status" },
+    { v: "4.7★", l: "Avg rating" },
+    { v: "Free", l: "To play" },
+  ],
+  features: [
+    { t: "One-tap playable", d: "A single thumb, one rule, infinite variations. Perfect for the elevator, the queue, the commute." },
+    { t: "Smart difficulty curve", d: "Our personalization engine watches how you play and dials the challenge in — always one step ahead, never frustrating." },
+    { t: "Weekly seasons", d: "Fresh content drops every week — new visual themes, new rules, new leaderboards. Always something to come back for." },
+  ],
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<GamePage {...TAP_HEXA} />);
+</script>
+</body>
+</html>
