@@ -9,11 +9,20 @@ Take the Claude.ai artifact export currently in this repo and ship it as the pro
 
 ## Scope
 
-- Production-ready static site, hosted on **GitHub Pages**, custom domain `airoclip.com`
+- Production-ready static site, **eventually** hosted on **GitHub Pages**, custom domain `airoclip.com`
 - Single design direction: **A · Studio** (dark theme, blue accent `#1a40e8`)
 - All pages restyled to Studio for visual consistency
 - Future page additions are a "drop a file, push, done" workflow — no build pipeline, no CMS
 - No backend, no auth, no forms
+
+### Phasing
+
+The work is split into two phases:
+
+- **Phase 1 — Build (now):** clean up the artifact, restyle pages, finalize the static site, push to **Bitbucket** as the interim source of truth. The Canva site stays live throughout.
+- **Phase 2 — Host (later):** mirror/move the repo to GitHub, configure Pages, add `CNAME`, flip DNS. Triggered by the user when ready.
+
+This spec covers both phases but the implementation plan should make Phase 1 fully shippable on its own — the site should be a complete, verified-working bundle of files at the end of Phase 1, even if not yet public.
 
 ## Non-goals
 
@@ -134,12 +143,15 @@ After this ships, the editing workflow for the site owner is:
 
 No build step, no deploy command, no AWS console.
 
+## Decisions confirmed
+
+- **Restyle careers/privacy/terms to Studio dark:** yes (approved with spec)
+- **Source repo:** Bitbucket for Phase 1, GitHub for Phase 2
+
 ## Open questions / decisions for user
 
-1. **Page restyle scope** — confirm: restyle careers/privacy/terms to Studio dark? (My recommendation: yes, for visual consistency. ~1-2 hours of work.)
-2. **`uploads/` directory** — anything in there that needs to stay live, or can it all be deleted? It looks like authoring scratch files (screenshots, xlsx coverage reports).
-3. **Repo visibility** — public or private? Free GitHub Pages requires public. Private repos need GitHub Pro ($4/mo) or a paid org plan.
-4. **Repo name** — does the user have an existing GitHub org for Airoclip, or push under a personal account?
+1. **`uploads/` directory** — anything in there that needs to stay live, or can it all be deleted? It looks like authoring scratch files (screenshots, xlsx coverage reports).
+2. **Bitbucket repo** — does one already exist, or do we need to create it? (Workspace/repo name?)
 
 ## Risks / things to verify
 
