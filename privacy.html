@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/airoclip-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css" />
 <link rel="stylesheet" href="styles/adaptive.css" />
 <style>
@@ -19,7 +19,7 @@
   .legal-wrap h3 { font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; margin: 28px 0 10px; color: #fff; }
   .legal-wrap p, .legal-wrap li { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 12px; }
   .legal-wrap ul, .legal-wrap ol { padding-left: 22px; margin-bottom: 16px; }
-  .legal-wrap a { color: #6f8bff; text-decoration: underline; text-underline-offset: 3px; }
+  .legal-wrap a { color: #6f8bff; text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
   .toc { padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 48px; }
   .toc h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); margin-bottom: 12px; font-weight: 500; }
   .toc ol { padding-left: 18px; margin: 0; }
@@ -45,13 +45,13 @@ function LegalPage({ title, lastUpdated, toc, children }) {
           <a href="index.html#tech">Technology</a>
           <a href="index.html#games">Games</a>
           <a href="index.html#investors">Investors</a>
-          <a href="careers.html">Careers</a>
+          <a href="index.html#careers">Careers</a>
         </div>
-        <div><a href="careers.html" className="btn btn-primary">We're hiring →</a></div>
+        <div><a href="https://app.dover.com/jobs/airoclip" target="_blank" rel="noopener" className="btn btn-primary">We're hiring →</a></div>
       </nav>
       <div className="legal-wrap">
         <h1>{title}</h1>
-        <div className="meta">Last updated · {lastUpdated} · Airoclip Technologies Pvt. Ltd.</div>
+        <div className="meta">Last updated · {lastUpdated} · AIROCLIP PRIVATE LIMITED</div>
         <div className="toc">
           <h4>Contents</h4>
           <ol>{toc.map((t, i) => <li key={i}><a href={`#s${i+1}`}>{t}</a></li>)}</ol>
@@ -65,17 +65,17 @@ function LegalPage({ title, lastUpdated, toc, children }) {
               <a href="index.html" className="nav-logo"><span className="mark"><AiroLogoMark size={16} /></span><span>airoclip</span></a>
               <p>Crafting personalized gaming experiences. Built from Bengaluru.</p>
               <div className="footer-socials" style={{marginTop: 20}}>
-                <a href="#"><Social.X /></a><a href="#"><Social.In /></a><a href="#"><Social.Yt /></a><a href="#"><Social.Ig /></a>
+                <a href="#" aria-label="X"><Social.X /></a><a href="#" aria-label="LinkedIn"><Social.In /></a><a href="#" aria-label="YouTube"><Social.Yt /></a><a href="#" aria-label="Instagram"><Social.Ig /></a>
               </div>
             </div>
-            <div className="footer-col"><h5>Studio</h5><a href="index.html#tech">Technology</a><a href="index.html#games">Games</a><a href="index.html#investors">Investors</a><a href="careers.html">Careers</a></div>
+            <div className="footer-col"><h5>Studio</h5><a href="index.html#tech">Technology</a><a href="index.html#games">Games</a><a href="index.html#investors">Investors</a><a href="index.html#careers">Careers</a></div>
             <div className="footer-col"><h5>Games</h5><a href="games/hexa-dreams.html">Hexa Dreams</a><a href="games/tap-hexa.html">Tap Hexa</a></div>
-            <div className="footer-col"><h5>Company</h5><a href="mailto:info@airoclip.com">Contact</a><a href="mailto:info@airoclip.com">Press</a></div>
+            <div className="footer-col"><h5>Company</h5><a href="mailto:gamesupport@airoclip.com">Contact</a><a href="news.html">News</a></div>
             <div className="footer-col"><h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="ads.txt">ads.txt</a></div>
           </div>
           <div className="footer-bottom">
-            <div>© 2025 Airoclip Technologies Pvt. Ltd. — Bengaluru, India</div>
-            <div className="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:info@airoclip.com">info@airoclip.com</a></div>
+            <div>© 2025 AIROCLIP PRIVATE LIMITED — Bengaluru, India</div>
+            <div className="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:gamesupport@airoclip.com">gamesupport@airoclip.com</a></div>
           </div>
         </div>
       </footer>
@@ -83,63 +83,231 @@ function LegalPage({ title, lastUpdated, toc, children }) {
   );
 }
 
-const TOC = ["Overview", "Information we collect", "How we use information", "Sharing & disclosure", "Advertising & analytics", "Children's privacy", "Your rights & choices", "Data retention & security", "International transfers", "Changes to this policy", "Contact us"];
+const TOC = [
+  "Overview",
+  "The information we collect",
+  "Why do we collect your information",
+  "Sharing of your information",
+  "Security of your information",
+  "Data retention",
+  "Children's privacy",
+  "Your rights",
+  "Specific provisions for California consumers",
+  "Your rights under the GDPR",
+  "International data transfers",
+  "Changes to this policy",
+  "Contact us"
+];
 
 function Privacy() {
   return (
-    <LegalPage title="Privacy Policy" lastUpdated="October 26, 2025" toc={TOC}>
+    <LegalPage title="Privacy Policy" lastUpdated="May 1, 2026" toc={TOC}>
       <h2 id="s1">1. Overview</h2>
-      <p>Airoclip Technologies Pvt. Ltd. ("Airoclip", "we", "us", or "our") operates the airoclip.com website and mobile games including Hexa Dreams and Tap Hexa (collectively, the "Services"). This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using our Services, you agree to the collection and use of information in accordance with this policy.</p>
+      <p>AIROCLIP PRIVATE LIMITED, also operating under the developer name Airo Puzzle Games on Google Play Store, develops and publishes games for web, mobile devices and other platforms on which players can use our Services. This Privacy Policy (this "Policy") describes the ways AIROCLIP PRIVATE LIMITED ("Airoclip", "us", "our" or "we") collects, stores, uses, discloses or otherwise processes personal information of our users ("users" or "you") in connection with their use of our products or services, including but not limited to our product offerings such as our games Hexa Dreams, Tap Hexa, JigStory, Flip 'n' Bust and any future titles released under our developer account, our website available at <a href="https://airoclip.com/">https://airoclip.com/</a> and other Airoclip game(s) provided on a mobile platform or any other Airoclip product or service that posts or links to this Policy (each a "Service," collectively, the "Services"). Additionally, this Policy describes the rights and choices concerning your information that may apply to you.</p>
+      <p>If you have questions regarding this Policy or our collection and use of personal information, please contact us as described in the "Contact us" section.</p>
 
-      <h2 id="s2">2. Information we collect</h2>
-      <h3>Information you provide</h3>
-      <p>When you contact us, apply for a job, or sign up for a newsletter, you may share information such as your name, email address, and message content.</p>
-      <h3>Information collected automatically</h3>
+      <h2 id="s2">2. The information we collect</h2>
+      <p>The categories of personal information we collect depend on the Services you use, and the requirements of applicable law.</p>
+
+      <h3>Information you provide us directly</h3>
+      <p>When you use our Services, you may give us personal information directly (for example, details you register with us when setting up your account), and we will store that personal information on our systems and process it for the purposes described in this Privacy Policy.</p>
+      <p>Depending on the Service, the personal information we collect will be relevant to providing that Service and include some or all of the following:</p>
       <ul>
-        <li><strong>Device & technical data</strong> — device model, operating system, language, time zone, mobile network, IP address, and unique identifiers such as advertising IDs (IDFA / GAID).</li>
-        <li><strong>Gameplay data</strong> — levels played, in-game choices, session length, progression, and other interactions used to power our personalization engine.</li>
-        <li><strong>Crash & diagnostic data</strong> — to help us identify and fix issues.</li>
+        <li>Contact information (such as name and email address or phone numbers)</li>
+        <li>Player name or tag and password</li>
+        <li>Profile information (such as profile photo)</li>
+        <li>User messages and other content you submit when you use the Service (such as chat logs)</li>
+        <li>Information you provide in connection with surveys, promotions, sweepstakes, competitions and other events</li>
+        <li>If you purchase in-game virtual currency or items in an Airoclip game, our third-party payment processor will collect the billing and financial information it needs to process your charges.</li>
       </ul>
 
-      <h2 id="s3">3. How we use information</h2>
+      <h3>Information we collect automatically</h3>
       <ul>
-        <li>To operate, maintain, and improve our Services.</li>
-        <li>To personalize gameplay — including adapting difficulty, story progression, and content to each player.</li>
-        <li>To deliver and measure the performance of advertising shown within our games.</li>
-        <li>To communicate with you about updates, new releases, or job applications.</li>
-        <li>To detect, prevent, and address technical issues, fraud, and abuse.</li>
-        <li>To comply with applicable law.</li>
+        <li>Information about your account and game progress, including in most cases an automatically created internal account ID</li>
+        <li>Your IP address and mobile device identifiers (such as your device or advertising ID)</li>
+        <li>Information about your device, such as device name and operating system, browser type and language, internet service provider, and mobile carrier</li>
+        <li>Information we collect with cookies and similar technologies (see more below)</li>
+        <li>Approximate location information (as derived from IP address)</li>
+        <li>Information about your use of the Service, such as gameplay information, purchases made and your interactions with other players inside the Service</li>
       </ul>
 
-      <h2 id="s4">4. Sharing & disclosure</h2>
-      <p>We do not sell your personal information. We share information only with:</p>
+      <h3>Information we collect from our partners</h3>
+      <p>We also use third-party partners, such as social networking sites, data analytics providers and advertising networks to supplement information we have about you, such as:</p>
       <ul>
-        <li><strong>Service providers</strong> — analytics, cloud hosting, customer support, and crash reporting partners that process data on our behalf.</li>
-        <li><strong>Advertising partners</strong> — to serve and measure ads inside our games (see Section 5).</li>
-        <li><strong>Legal & safety</strong> — when required to comply with law, enforce our terms, or protect rights and safety.</li>
-        <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets, with appropriate notice.</li>
+        <li>Information we receive if you link a third-party tool with the Service (such as Facebook)</li>
+        <li>Non-identifiable demographic information (such as to determine the coarse location of your IP address)</li>
+        <li>Information to combat fraud (such as refund abuse in games or click fraud in advertising)</li>
+        <li>Information from platforms that the games run on or information from payment service providers (such as payment verification information)</li>
+        <li>Information for advertising and analytics purposes (such as surveys), so we can provide you a better Service</li>
+        <li>Anonymized information that you have made available to us from a third party service (such as Facebook) via your privacy settings</li>
+      </ul>
+      <p>If you access our Services from a third-party platform or connect our Services to a third-party account, you should also read that platform's terms of service and privacy policy.</p>
+      <p>If you are unclear about what information a third-party platform is sharing with us, please go to that platform to find out more about their privacy practices and any options available to you regarding such sharing.</p>
+
+      <h2 id="s3">3. Why do we collect your information</h2>
+      <p>We use information collected through our Service for purposes described in this Policy or disclosed to you in connection with our Service. For example, we may use your information for:</p>
+
+      <h3>Service delivery</h3>
+      <ul>
+        <li>Create your Service accounts and allow access to our Services;</li>
+        <li>Identify and suggest connections with other Airoclip users;</li>
+        <li>Operate our Services;</li>
+        <li>Improve our Services;</li>
+        <li>Understand you and your preferences to enhance your experience and enjoyment using our Services;</li>
+        <li>Respond to your comments and questions and provide customer service;</li>
+        <li>Provide and deliver products and services you request;</li>
+        <li>Send you related information, including confirmations, invoices, technical notices, updates, security alerts, and support and administrative messages;</li>
+        <li>Conduct and administer surveys, user research projects, competitions and promotional events that you participate in;</li>
+        <li>Prevent fraud or potentially illegal activities, and enforce our Terms of Use;</li>
+        <li>Enable you to communicate with other users; and</li>
+        <li>Fulfill any other purpose for which you provide anonymized personal information.</li>
       </ul>
 
-      <h2 id="s5">5. Advertising & analytics</h2>
-      <p>Our games may display third-party advertisements. Advertising partners may use cookies, advertising IDs, and similar technologies to deliver relevant ads and measure their effectiveness. The list of authorized digital sellers we work with for advertising is published at <a href="ads.txt">airoclip.com/ads.txt</a>. You can opt out of personalized advertising using your device settings: <em>Limit Ad Tracking</em> on iOS or <em>Opt out of Ads Personalization</em> on Android.</p>
+      <h3>Marketing and advertising</h3>
+      <ul>
+        <li>Deliver and target advertising and marketing and promotional information to you;</li>
+        <li>Communicate with you (including via email and push notifications) about promotions, contests, rewards, upcoming events, and other news about products and services offered by us and our selected partners with your consent.</li>
+      </ul>
 
-      <h2 id="s6">6. Children's privacy</h2>
-      <p>Our Services are not directed to children under 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us at <a href="mailto:privacy@airoclip.com">privacy@airoclip.com</a> so we can delete it.</p>
+      <h3>Research and development</h3>
+      <ul>
+        <li>Create aggregate or anonymous information derived from the personal information we handle, which we may use and disclose for research, development and other lawful business purposes;</li>
+        <li>Link or combine personal information with other information we get from third parties in an anonymized manner to help understand your preferences and provide you better services; and</li>
+        <li>Analyze anonymized information to choose to provide to us in connection with Airoclip surveys and user research projects to gain insights into how users engage with our Services, to improve our Services, to consider developing new products or services, and other lawful purposes.</li>
+      </ul>
 
-      <h2 id="s7">7. Your rights & choices</h2>
-      <p>Depending on your location, you may have the right to access, correct, delete, or port your personal information, and to object to or restrict certain processing. To exercise these rights, email us at <a href="mailto:privacy@airoclip.com">privacy@airoclip.com</a>. EU/UK residents may also lodge a complaint with their local data protection authority.</p>
+      <h3>Compliance and protection</h3>
+      <ul>
+        <li>Comply with applicable laws, lawful requests, and legal process, such as to respond to subpoenas or requests from government authorities;</li>
+        <li>Protect our, your or others' rights, privacy, safety or property (including by investigating, bringing, making or defending legal claims);</li>
+        <li>Audit our internal processes for compliance with legal and contractual requirements or our internal policies;</li>
+        <li>Enforce the terms and conditions that govern the Services; and</li>
+        <li>Prevent, identify, investigate and deter fraudulent, harmful, unauthorized, unethical or illegal activity, including cyberattacks and identity theft in a manner consistent with applicable laws and regulations.</li>
+      </ul>
 
-      <h2 id="s8">8. Data retention & security</h2>
-      <p>We retain personal information only for as long as necessary to provide the Services and for legitimate business or legal purposes. We use industry-standard administrative, technical, and physical safeguards to protect your information.</p>
+      <h2 id="s4">4. Sharing of your information</h2>
+      <p>We may share information we collect for the following purposes:</p>
 
-      <h2 id="s9">9. International transfers</h2>
-      <p>We are headquartered in India and may transfer your information to countries outside your own. Where required, we use appropriate safeguards such as Standard Contractual Clauses.</p>
+      <p><strong>Service Providers.</strong> With service providers that perform services on our behalf or enhance our Services, including hosting services, customer service, analytics services and to assist us in our marketing efforts in compliance with applicable data protection laws.</p>
+      <ul>
+        <li>Flurry: <a href="https://www.verizonmedia.com/policies/us/en/verizonmedia/.privacy/index.html">https://www.verizonmedia.com/policies/us/en/verizonmedia/.privacy/index.html</a></li>
+        <li>AppsFlyer: <a href="https://www.appsflyer.com/privacy-policy/">https://www.appsflyer.com/privacy-policy/</a></li>
+        <li>Firebase: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+      </ul>
 
-      <h2 id="s10">10. Changes to this policy</h2>
-      <p>We may update this policy from time to time. The "Last updated" date at the top reflects when the latest changes were made. Material changes will be communicated through the Services.</p>
+      <p><strong>Payment Processors.</strong> With third-party payment processors that process payments you make while adhering to necessary security and privacy standards.</p>
 
-      <h2 id="s11">11. Contact us</h2>
-      <p>Questions or requests? Email <a href="mailto:privacy@airoclip.com">privacy@airoclip.com</a> or write to: Airoclip Technologies Pvt. Ltd., Bengaluru, Karnataka, India.</p>
+      <p><strong>Advertising Partners.</strong> Advertisers, ad exchanges and other ad technology companies that require the information to select and serve our relevant advertisements to you and others, and assist us in our marketing efforts. Those partners usually collect information via their own tools (Software Development Kits or "SDK"). You will find a list of our partners implementing advertising SDKs through our applications and the privacy policies of their services that describe their practices and allow you to exercise your rights directly toward them, provided that they comply with applicable data protection regulations:</p>
+      <ul>
+        <li>Facebook: <a href="https://www.facebook.com/policy.php">https://www.facebook.com/policy.php</a></li>
+        <li>Google: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>AppLovin: <a href="https://www.applovin.com/privacy/">https://www.applovin.com/privacy/</a></li>
+        <li>Unity: <a href="https://unity.com/legal/privacy-policy">https://unity.com/legal/privacy-policy</a></li>
+        <li>Verve: <a href="https://verve.com/product-privacy-policies/">https://verve.com/product-privacy-policies/</a></li>
+        <li>Inmobi: <a href="https://www.inmobi.com/privacy-policy">https://www.inmobi.com/privacy-policy</a></li>
+        <li>Smaato: <a href="https://www.smaato.com/privacy/">https://www.smaato.com/privacy/</a></li>
+        <li>Pangle: <a href="https://www.pangleglobal.com/privacy">https://www.pangleglobal.com/privacy</a></li>
+        <li>Liftoff: <a href="https://liftoff.io/privacy-policy/">https://liftoff.io/privacy-policy/</a></li>
+        <li>Digital Turbine: <a href="https://www.digitalturbine.com/privacy-policy/">https://www.digitalturbine.com/privacy-policy/</a></li>
+        <li>ironSource: <a href="https://developers.is.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/">https://developers.is.com/ironsource-mobile/air/ironsource-mobile-privacy-policy/</a></li>
+        <li>TikTok: <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en">https://www.tiktok.com/legal/page/us/privacy-policy/en</a></li>
+        <li>Amazon Publisher Services: <a href="https://aps.amazon.com/aps/privacy-policy/">https://aps.amazon.com/aps/privacy-policy/</a></li>
+      </ul>
+      <p>The privacy policies of our partners may include additional terms and disclosures regarding their information collection and use practices. We encourage you to review those privacy policies to learn more about their information collection and use practices.</p>
+
+      <p><strong>Affiliates.</strong> With our parent company, subsidiaries and other affiliates in accordance with applicable data protection laws.</p>
+      <p><strong>Professional Advisors.</strong> With professional advisors, such as lawyers, auditors, bankers and insurers, where necessary in the course of the professional services that they render to us while respecting confidentiality obligations.</p>
+      <p><strong>Authorities and others.</strong> With law enforcement and public authorities, as we believe in good faith to be necessary or appropriate for the compliance and protection purposes described above and in compliance with applicable laws and regulations.</p>
+      <p><strong>Business Transferees.</strong> With acquirers and other relevant participants (and their advisors) in business transactions (or negotiations of or due diligence for such transactions) involving a corporate divestiture, merger, consolidation, acquisition, reorganization, sale or other disposition of all or any portion of the business or assets of, or equity interests in, Airoclip or our affiliates (including, in connection with a bankruptcy or similar proceedings) subject to appropriate confidentiality agreements and legal safeguards.</p>
+      <p><strong>Your specified recipients.</strong> We may disclose personal information about an individual to certain other third parties or publicly with their consent or direction in compliance with applicable data protection laws.</p>
+
+      <h2 id="s5">5. Security of your information</h2>
+      <p>We implement reasonable and appropriate technical and organizational measures to protect the security of your personal information against accidental or unlawful destruction, loss, change or damage in accordance with industry standards and applicable data protection laws.</p>
+      <p>However, no security system is impenetrable, and we cannot guarantee the security of your personal information. Any transmission is at your own risk.</p>
+      <p>In accordance with the Information Technology Act, 2000 and rules made thereunder, the name and contact details of the Grievance Officer are provided below:</p>
+      <p>Name: Naga Rohith Anisetty<br />Email: <a href="mailto:grievance@airoclip.com">grievance@airoclip.com</a></p>
+
+      <h2 id="s6">6. Data retention</h2>
+      <p>We retain your personal information for as long as needed to provide you Services, unless we are required by law to delete it or if we accept your request to delete the information pursuant to applicable law. We will also retain and use your personal information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements in compliance with relevant data retention regulations.</p>
+      <p>When we no longer require your personal information, we will look to delete or anonymize it or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will apply security measures to your personal information and isolate it from any further processing until deletion is possible. If we anonymize your personal information (so that it can no longer be associated with you), we may use this information indefinitely without further notice to you.</p>
+
+      <h2 id="s7">7. Children's privacy</h2>
+      <p>In compliance with applicable data protection laws, our Services are not marketed to, or intended for, children. For these purposes, we use the term "children" to refer to someone who is: (a) under 13 years old or, if older, (b) between 13 and 18 years old but under the age at which they can give valid consent to processing of their personal information under applicable data privacy laws. Airoclip strives to follow the different minimum age guidelines set by the laws of individual regions when determining the age that children can access certain features of our Services.</p>
+      <p>Children are not permitted to use these Services, and we do not knowingly collect any personal information from children. Though our Services are not intended for children as the primary audience, we may collect age information before allowing a user to proceed for certain Services. For users who identify themselves as children in our age-gate on such Services, if we allow children to use the Services, we will either provide a version of that Service that does not collect, use, or disclose "personal information" (as defined in the Children's Online Privacy Protection Act ("COPPA")), except as permitted by COPPA or other privacy laws (where applicable), or obtain legally valid parental consent in accordance with relevant regulations.</p>
+      <p>If we learn that we have inadvertently gathered personal information about a child that is not subject to an exemption under COPPA or another applicable privacy law, we will take measures to promptly remove that information from our records and take necessary steps to prevent such occurrences in the future.</p>
+
+      <h2 id="s8">8. Your rights</h2>
+      <p>Your privacy rights are explained below. These rights apply to information about you, and their scope and applicability can vary across different regions. For example, they could extend to your household or a legal entity or could be exercised by a legal representative on your behalf. We will comply with applicable privacy laws, including any required response times.</p>
+      <p>Subject to certain exemptions, you have the right to:</p>
+      <ul>
+        <li>Request a copy of your personal information (known as "accessing your data").</li>
+        <li>Delete your information. When you ask us to delete your personal information please remember that there may be lawful limitations on this right. For example, we will keep certain payment records or customer service records where we need to, including for legal or accounting purposes. We will also keep information in order to exercise, protect, defend, or establish our rights or the rights of third parties.</li>
+        <li>Correct or update your personal information where it is inaccurate. To review and update personal information associated with your Airoclip player profile in certain games, visit the "settings" page in that game.</li>
+        <li>Opt out of marketing communications we send you by following the instructions in the games or by contacting us at <a href="mailto:gamesupport@airoclip.com">gamesupport@airoclip.com</a>.</li>
+        <li>Where applicable, withdraw your consent at any time directly in the Service or by contacting us. Withdrawing your consent will not affect the processing already undertaken before your withdrawal. Also, it will not affect processing of your personal information under other lawful grounds.</li>
+        <li>Object to processing of your personal information, ask us to restrict processing of your personal information, or request portability of your personal information.</li>
+        <li>Ask that you are not subject to automated decision-making that has a legal effect or any other significant effect on you.</li>
+        <li>Complain to a data protection authority.</li>
+      </ul>
+      <p>For California residents, please also review section 9 below for additional rights.</p>
+
+      <h3>Managing personal information from third-party applications and your mobile device</h3>
+      <p>You can manage the information we receive from third-party applications or platforms and from your mobile device as follows:</p>
+      <ul>
+        <li>To manage the personal information we receive about you from a third-party application or platform where you play our games, like Facebook, Apple, Google, or Amazon, you can update your privacy settings through the third-party application or platform's "settings" menu.</li>
+        <li>For your mobile device, visit the "settings" page or web browser to review the access permissions of each of our Services.</li>
+      </ul>
+      <p>Once we receive your information from a third-party application or platform or from your mobile device, that information is processed by us in accordance with this Privacy Policy.</p>
+
+      <h2 id="s9">9. Specific provisions for California consumers</h2>
+      <p>These additional provisions for California consumers apply only to individuals who reside in California. The California Consumer Privacy Act of 2018 ("CCPA") and California Privacy Rights Act of 2020 ("CPRA") provide additional rights to know, access, correct, delete, and opt out, and require "businesses" collecting or disclosing personal information to provide notice and a means to exercise those rights.</p>
+
+      <h3>Your California privacy rights</h3>
+      <p>California residents have the rights listed below under the CCPA. However, these rights are not absolute, and in certain cases we may decline your request as permitted by law.</p>
+      <ul>
+        <li><strong>Information.</strong> You can request the following information about how we have collected and used your Personal Information during the past 12 months:
+          <ul>
+            <li>The categories of Personal Information that we have collected.</li>
+            <li>The categories of sources from which we collected Personal Information.</li>
+            <li>The business or commercial purpose for collecting and/or selling Personal Information.</li>
+            <li>The categories of third parties to whom we disclose Personal Information.</li>
+            <li>The categories of Personal Information that we sold or disclosed for a business purpose.</li>
+            <li>The categories of third parties to whom the Personal Information was sold or disclosed for a business purpose.</li>
+          </ul>
+        </li>
+        <li><strong>Access.</strong> You can request a copy of the Personal Information that we have collected about you during the past 12 months.</li>
+        <li><strong>Correct.</strong> You can request that we correct any information on your account that is not accurate, complete, or updated by providing us with the necessary information to correct it.</li>
+        <li><strong>Deletion.</strong> You can ask us to delete the Personal Information that we have collected from you, subject to applicable legal limitations.</li>
+        <li><strong>Opt-out of sales.</strong> You can opt out of any sale of your Personal Information to the extent applicable under the law.</li>
+        <li><strong>Nondiscrimination.</strong> You are entitled to exercise the rights described above free from discrimination as prohibited by the CCPA.</li>
+      </ul>
+
+      <h3>Right to opt out of information sales</h3>
+      <p>We do not "sell" information about our users as most people would commonly understand that term. However, consistent with common practice among companies that operate online, we do "share" information in the sense that we allow certain third-party advertising networks and other third-party businesses to collect and disclose your personal information directly from your browser or device through cookies or tracking technologies when you visit or interact with our websites, use our apps or otherwise engage with us, in compliance with applicable laws and regulations.</p>
+
+      <h3>How to exercise your rights</h3>
+      <p>To exercise your right to know, right to access, right to correct, right to delete, right to opt out of information sales, or any other right you may have under applicable law, please submit a request by emailing <a href="mailto:gamesupport@airoclip.com">gamesupport@airoclip.com</a> or by writing to us at the address in the "Contact us" section below, with the subject line "California Rights Request" and specifying which right(s) you would like to exercise (for example, your right to delete). We will need to verify your identity before processing your request. In order to verify your identity, we will generally require the matching of sufficient information you provide us to the information we maintain about you in our systems, in compliance with applicable laws. In certain circumstances, we may decline a request to exercise the rights described above, particularly where we are unable to verify your identity or locate your information in our systems. If we are unable to comply with all or a portion of your request, we will explain the reasons for declining to comply with the request.</p>
+      <p>In certain circumstances, you are permitted to use an authorized agent to submit requests on your behalf where (i) you provide sufficient evidence to show that the requestor is an authorized agent with written permission to act on your behalf and (ii) you successfully verify your own identity with us, as required by applicable laws.</p>
+      <p>We aim to respond to a consumer request within 45 days of receiving that request. If we require more time, we will inform you of the reason and extension period in writing, in compliance with applicable laws.</p>
+
+      <h2 id="s10">10. Your rights under the GDPR</h2>
+      <p>You are entitled to obtain information from us on how we handle your personal data, to see copies of all personal data held by us, and to request that your personal data be amended, corrected, or deleted from our systems. You can also limit, restrict or object to the processing of your data.</p>
+      <p>We do not carry out any decision-making based solely on automated processing, including profiling.</p>
+      <p>If you gave us your consent to use your data, e.g. so that we can send you marketing emails or display personalized ads, you can withdraw your consent at any time. Please note that even if you withdraw your consent, we can still rely on the consent you gave as the lawful basis for processing your personal data before you withdrew your consent.</p>
+
+      <h2 id="s11">11. International data transfers</h2>
+      <p>Our Service is global by nature and your data can therefore be transferred to anywhere in the world. Because different countries may have different data protection laws than your own country, we take steps to ensure adequate safeguards are in place to protect your data as explained in this Privacy Policy. Adequate safeguards that we may use include standard contractual clauses approved by the EU Commission and other lawful safeguards, in compliance with applicable laws.</p>
+      <p>Some of the partners and processors referred to in this policy are located outside of the European Union. In such cases, we ensure that:</p>
+      <ul>
+        <li>the personal data is transferred to countries recognized as offering an equivalent level of protection; or</li>
+        <li>for personal data transferred outside of countries recognized by the European Commission as having a sufficient level of protection, any of the mechanisms offering appropriate guarantees is used, for which provision is made by applicable regulations, and notably the adoption of the standard contractual clauses of the European Commission, in compliance with applicable laws.</li>
+      </ul>
+
+      <h2 id="s12">12. Changes to this policy</h2>
+      <p>We may update this Policy to reflect changes to our data and information privacy practices. We encourage you to periodically check <a href="https://www.airoclip.com">www.airoclip.com</a> and this Privacy Policy for updates. Your continued use of the Service after the effective date will be subject to the new Privacy Policy, provided that such changes comply with applicable laws and regulations.</p>
+
+      <h2 id="s13">13. Contact us</h2>
+      <p>If you have any questions or concerns about our Privacy Policy, including the exercise of any rights as permitted under applicable laws, please contact us at <a href="mailto:gamesupport@airoclip.com">gamesupport@airoclip.com</a>.</p>
     </LegalPage>
   );
 }
