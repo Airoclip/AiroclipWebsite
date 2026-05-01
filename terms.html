@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service — Airoclip</title>
+<link rel="icon" type="image/png" href="assets/airoclip-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/shared.css" />
+<link rel="stylesheet" href="styles/adaptive.css" />
+<style>
+  body { background: #07070a; }
+  .legal-wrap { max-width: 880px; margin: 0 auto; padding: 80px 40px 100px; }
+  .legal-wrap h1 { font-family: 'Instrument Serif', serif; font-size: clamp(48px, 6vw, 80px); line-height: 1; letter-spacing: -0.03em; font-weight: 400; color: #fff; }
+  .legal-wrap .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.14em; margin: 18px 0 48px; }
+  .legal-wrap h2 { font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 48px 0 16px; color: #fff; }
+  .legal-wrap h3 { font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; margin: 28px 0 10px; color: #fff; }
+  .legal-wrap p, .legal-wrap li { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 12px; }
+  .legal-wrap ul, .legal-wrap ol { padding-left: 22px; margin-bottom: 16px; }
+  .legal-wrap a { color: #6f8bff; text-decoration: underline; text-underline-offset: 3px; }
+  .toc { padding: 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 48px; }
+  .toc h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); margin-bottom: 12px; font-weight: 500; }
+  .toc ol { padding-left: 18px; margin: 0; }
+  .toc li { font-size: 14px; margin-bottom: 6px; }
+  .toc a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .toc a:hover { color: #6f8bff; }
+  @media (max-width: 700px) { .legal-wrap { padding: 60px 24px 80px; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="components/shared.jsx"></script>
+<script type="text/babel">
+const TOC = ["Acceptance of terms", "Eligibility & account", "License to use the Services", "Acceptable use", "User content", "In-app purchases & virtual items", "Advertising", "Intellectual property", "Disclaimers", "Limitation of liability", "Termination", "Governing law & disputes", "Changes to these terms", "Contact"];
+
+function Terms() {
+  return (
+    <div className="adaptive">
+      <nav className="nav">
+        <a href="index.html" className="nav-logo"><span className="mark"><AiroLogoMark size={16} /></span><span>airoclip</span></a>
+        <div className="nav-links">
+          <a href="index.html#tech">Technology</a>
+          <a href="index.html#games">Games</a>
+          <a href="index.html#investors">Investors</a>
+          <a href="careers.html">Careers</a>
+        </div>
+        <div><a href="careers.html" className="btn btn-primary">We're hiring →</a></div>
+      </nav>
+      <div className="legal-wrap">
+        <h1>Terms of Service</h1>
+        <div className="meta">Last updated · October 26, 2025 · Airoclip Technologies Pvt. Ltd.</div>
+        <div className="toc">
+          <h4>Contents</h4>
+          <ol>{TOC.map((t, i) => <li key={i}><a href={`#s${i+1}`}>{t}</a></li>)}</ol>
+        </div>
+
+        <h2 id="s1">1. Acceptance of terms</h2>
+        <p>These Terms of Service ("Terms") govern your access to and use of the airoclip.com website and our mobile games (the "Services") provided by Airoclip Technologies Pvt. Ltd. ("Airoclip", "we", "us"). By using the Services you agree to be bound by these Terms.</p>
+
+        <h2 id="s2">2. Eligibility & account</h2>
+        <p>You must be at least 13 years old, or the minimum digital-consent age in your country, to use the Services. If we provide accounts, you are responsible for maintaining the confidentiality of your credentials and for all activity under your account.</p>
+
+        <h2 id="s3">3. License to use the Services</h2>
+        <p>Subject to these Terms, Airoclip grants you a limited, personal, non-exclusive, non-transferable, revocable license to access and use the Services for personal, non-commercial entertainment.</p>
+
+        <h2 id="s4">4. Acceptable use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Reverse engineer, decompile, or attempt to extract source code from our Services, except where allowed by law.</li>
+          <li>Use cheats, automation tools, bots, or modifications that disrupt gameplay or other players.</li>
+          <li>Infringe the intellectual property, privacy, or other rights of any party.</li>
+          <li>Use the Services for any unlawful purpose or in violation of applicable regulations.</li>
+        </ul>
+
+        <h2 id="s5">5. User content</h2>
+        <p>If the Services let you submit content (e.g. names, comments, feedback), you grant Airoclip a worldwide, royalty-free license to host, use, and display that content as needed to operate the Services. You are responsible for what you submit.</p>
+
+        <h2 id="s6">6. In-app purchases & virtual items</h2>
+        <p>Some of our games may offer optional in-app purchases. Virtual items have no real-world monetary value and are not refundable except as required by law or by the platform you bought them on (e.g. Apple, Google).</p>
+
+        <h2 id="s7">7. Advertising</h2>
+        <p>Our games may include advertising. We work only with verified ad partners; the authorized list is published at <a href="ads.txt">airoclip.com/ads.txt</a>. See our <a href="privacy.html">Privacy Policy</a> for how advertising data is handled and how to opt out of personalized ads.</p>
+
+        <h2 id="s8">8. Intellectual property</h2>
+        <p>All Airoclip trademarks, logos, game art, code, characters, level designs, and other materials are owned by Airoclip or its licensors and are protected by copyright, trademark, and other laws.</p>
+
+        <h2 id="s9">9. Disclaimers</h2>
+        <p>The Services are provided "as is" and "as available" without warranties of any kind. We do not guarantee that the Services will be uninterrupted, error-free, or always available.</p>
+
+        <h2 id="s10">10. Limitation of liability</h2>
+        <p>To the maximum extent permitted by law, Airoclip will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.</p>
+
+        <h2 id="s11">11. Termination</h2>
+        <p>We may suspend or terminate your access to the Services at any time if you breach these Terms or use the Services in a way that could cause us legal liability or harm other users.</p>
+
+        <h2 id="s12">12. Governing law & disputes</h2>
+        <p>These Terms are governed by the laws of India. Any dispute will be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.</p>
+
+        <h2 id="s13">13. Changes to these terms</h2>
+        <p>We may update these Terms from time to time. The "Last updated" date at the top reflects when changes were made. Continued use of the Services after a change means you accept the updated Terms.</p>
+
+        <h2 id="s14">14. Contact</h2>
+        <p>Questions about these Terms? Email <a href="mailto:legal@airoclip.com">legal@airoclip.com</a>.</p>
+      </div>
+      <footer className="footer">
+        <div className="footer-inner">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a href="index.html" className="nav-logo"><span className="mark"><AiroLogoMark size={16} /></span><span>airoclip</span></a>
+              <p>Crafting personalized gaming experiences. Built from Bengaluru.</p>
+              <div className="footer-socials" style={{marginTop: 20}}><a href="#"><Social.X /></a><a href="#"><Social.In /></a><a href="#"><Social.Yt /></a><a href="#"><Social.Ig /></a></div>
+            </div>
+            <div className="footer-col"><h5>Studio</h5><a href="index.html#tech">Technology</a><a href="index.html#games">Games</a><a href="index.html#investors">Investors</a><a href="careers.html">Careers</a></div>
+            <div className="footer-col"><h5>Games</h5><a href="games/hexa-dreams.html">Hexa Dreams</a><a href="games/tap-hexa.html">Tap Hexa</a></div>
+            <div className="footer-col"><h5>Company</h5><a href="mailto:info@airoclip.com">Contact</a><a href="mailto:info@airoclip.com">Press</a></div>
+            <div className="footer-col"><h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="ads.txt">ads.txt</a></div>
+          </div>
+          <div className="footer-bottom">
+            <div>© 2025 Airoclip Technologies Pvt. Ltd. — Bengaluru, India</div>
+            <div className="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:info@airoclip.com">info@airoclip.com</a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Terms />);
+</script>
+</body>
+</html>
