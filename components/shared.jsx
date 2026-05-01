@@ -1,15 +1,12 @@
 // Brand mark — renders the official airoclip logo PNG.
-// Kept the AiroLogoMark name + size param signature so existing call sites
-// (studio.jsx, careers.html, privacy.html, terms.html, news.html footers) still work.
-// The `color` param is ignored — the asset is a fixed colored image.
-function AiroLogoMark({ size = 18, color }) {
+// Fills its parent container (the .mark wrapper sets the actual dimensions in CSS).
+// The size and color params are ignored, kept for backward-compatible call sites.
+function AiroLogoMark({ size, color }) {
   return (
     <img
       src="assets/airoclip-logo.png"
       alt="Airoclip"
-      width={size}
-      height={size}
-      style={{display: 'block', borderRadius: 4}}
+      style={{width: '100%', height: '100%', display: 'block', objectFit: 'cover'}}
     />
   );
 }

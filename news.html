@@ -28,8 +28,9 @@
     display: flex; align-items: center; justify-content: space-between;
     font-family: 'Inter Tight', system-ui, sans-serif;
   }
-  .news-nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; color: #fff; }
-  .news-nav .brand .mark { width: 28px; height: 28px; border-radius: 7px; background: #1a40e8; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 14px; }
+  .news-nav .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 18px; letter-spacing: -0.02em; font-family: 'Space Grotesk', sans-serif; color: #fff; }
+  .news-nav .brand .mark { width: 40px; height: 40px; border-radius: 9px; overflow: hidden; display: block; }
+  .news-nav .brand .mark img { width: 100%; height: 100%; display: block; object-fit: cover; }
   .news-nav .links { display: flex; gap: 28px; font-size: 14px; }
   .news-nav .links a { color: rgba(255,255,255,0.7); transition: color .15s; }
   .news-nav .links a:hover, .news-nav .links a.active { color: #fff; }
@@ -383,8 +384,8 @@
 
   <nav class="news-nav">
     <a href="index.html" class="brand">
-      <span class="mark">A</span>
-      <span>Airoclip</span>
+      <span class="mark"><img src="assets/airoclip-logo.png" alt="Airoclip" /></span>
+      <span>airoclip</span>
     </a>
     <div class="links">
       <a href="index.html#tech">Technology</a>
