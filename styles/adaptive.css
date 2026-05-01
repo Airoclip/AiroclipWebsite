@@ -1,5 +1,5 @@
 /* Secondary-page stylesheet — dark theme matching Studio direction.
-   Used by careers.html, privacy.html, terms.html for nav/footer/eyebrow/btn chrome.
+   Used by careers.html, privacy-policy.html, terms-conditions.html for nav/footer/eyebrow/btn chrome.
    Originally Direction B (Adaptive, light); recolored 2026-05-01 for production. */
 .adaptive {
   --bg: #07070a;
