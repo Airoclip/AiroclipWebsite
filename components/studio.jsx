@@ -74,7 +74,7 @@ function StudioSite({ tweaks = {} }) {
           <a href="#tech">Technology</a>
           <a href="#games">Games</a>
           <a href="#investors">Investors</a>
-          <a href="careers.html">Careers</a>
+          <a href="#careers">Careers</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="nav-cta">
@@ -230,8 +230,6 @@ function StudioSite({ tweaks = {} }) {
                 <div><div className="v"></div><div className="l"></div></div>
               </div>
               <div className="game-actions">
-                <a href="games/hexa-dreams.html" className="btn btn-ghost" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
-</a>
                 <a href="#" className="store-btn">▶ Google Play</a>
                 <a href="#" className="store-btn"> App Store</a>
               </div>
@@ -257,7 +255,6 @@ function StudioSite({ tweaks = {} }) {
                 <div><div className="v">Free</div><div className="l">To play</div></div>
               </div>
               <div className="game-actions">
-                <a href="games/tap-hexa.html" className="btn btn-ghost" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>View game →</a>
                 <a href="#" className="store-btn">▶ Google Play</a>
                 <a href="#" className="store-btn"> App Store</a>
               </div>
@@ -292,7 +289,7 @@ function StudioSite({ tweaks = {} }) {
       </section>
 
       {/* CAREERS BANNER */}
-      <div className="careers-banner">
+      <div className="careers-banner" id="careers">
         <div>
           <h2 style={{ width: "478px", fontSize: "42px" }}>Join us build games that millions of people love.</h2>
           <p>We're hiring across game growth, design, engineering, and data. Bengaluru-based, global ambition.</p>
