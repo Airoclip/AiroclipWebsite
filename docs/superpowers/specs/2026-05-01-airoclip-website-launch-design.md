@@ -68,14 +68,15 @@ The site is plain static HTML/CSS/JS. The homepage uses React 18 via UMD CDN wit
 
 These are Claude.ai authoring artifacts or other-direction code, not used in production:
 
-- `components/adaptive.jsx`
-- `components/playful.jsx`
-- `styles/adaptive.css`
-- `styles/playful.css`
-- `tweaks-panel.jsx`
-- `design-canvas.jsx`
+- `components/adaptive.jsx` — Adaptive direction's React component (homepage), unused once index.html locks to Studio
+- `components/playful.jsx` — same for Playful
+- `styles/playful.css` — Playful direction's full stylesheet, unused
+- `tweaks-panel.jsx` — Claude.ai authoring tool (the floating tweaks UI)
+- `design-canvas.jsx` — Claude.ai canvas frame, authoring artifact
 - `Airoclip Site (standalone).html` (2.2MB self-contained version with all 3 directions, was for sharing/preview)
 - `Airoclip Site.html` (the full multi-direction switcher version, replaced by the cleaned `index.html`)
+
+**`styles/adaptive.css` is NOT deleted** — it's the shared stylesheet used by `careers.html`, `privacy.html`, and `terms.html` for nav/footer/eyebrow/btn classes. Instead it gets recolored in place: the file uses CSS custom properties (variables) at the top of the `.adaptive {}` block, so flipping ~10 variable values (`--bg`, `--ink`, etc.) converts the whole sheet from light to dark. The `.adaptive` class name stays as an internal namespace; renaming would touch ~50+ rules for no user-visible benefit. A comment at the top of the file will note its current role ("secondary-page stylesheet, dark theme matching Studio").
 
 `uploads/` is **kept** in the repo (small files, may be useful later). Files there aren't linked from any page, so they won't ship to visitors — they just live in the repo.
 
@@ -93,16 +94,20 @@ These are Claude.ai authoring artifacts or other-direction code, not used in pro
 - Remove the `EDITMODE-BEGIN`/`EDITMODE-END` markers (Claude.ai-only)
 - Keep the body background as `#07070a` (Studio dark)
 
+### `styles/adaptive.css`
+- Recolor in place by flipping the CSS variables at the top of the `.adaptive {}` block from light to dark equivalents
+- Adjust hard-coded light backgrounds in nav, `.numbers`, `.careers-banner` sections
+- Add header comment explaining the file is the secondary-page stylesheet (dark theme)
+
 ### `careers.html`, `privacy.html`, `terms.html`
-- Swap `<link rel="stylesheet" href="styles/adaptive.css">` → `styles/studio.css`
-- Update inline `<style>` block: replace light-mode colors with Studio dark equivalents
+- Keep the `<link>` to `styles/adaptive.css` (no change — it's now dark)
+- Update inline `<style>` blocks: replace light-mode colors with Studio dark equivalents
   - Background: `#fafaf7` → `#07070a`
   - Card backgrounds: `#fff` → `rgba(255,255,255,0.04)` with `border: 1px solid rgba(255,255,255,0.08)`
   - Body text: `#2a2a35` → `rgba(255,255,255,0.72)`
   - Muted text: `#6b6b78` → `rgba(255,255,255,0.5)`
   - Headings: `#0e0e14` → `#fff`
-  - Accent stays `#1a40e8` (Studio's blue, also happens to be Adaptive's blue — convenient)
-- Match `news.html`'s nav/footer treatment so all pages share the same chrome
+  - Accent stays `#1a40e8` (Studio's blue is also Adaptive's blue — convenient)
 
 ### `tap-hexa.html`, `hexa-dreams.html`
 - No changes. Game landing pages can have their own identity.
