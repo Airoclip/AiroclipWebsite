@@ -1,11 +1,16 @@
-// Shared logo SVG component (the airoclip infinity-clip mark)
-function AiroLogoMark({ size = 18, color = "#fff" }) {
+// Brand mark — renders the official airoclip logo PNG.
+// Kept the AiroLogoMark name + size param signature so existing call sites
+// (studio.jsx, careers.html, privacy.html, terms.html, news.html footers) still work.
+// The `color` param is ignored — the asset is a fixed colored image.
+function AiroLogoMark({ size = 18, color }) {
   return (
-    <svg viewBox="0 0 64 64" width={size} height={size} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M14 32c0-7.2 5.8-13 13-13 4.4 0 7.7 2.4 10.4 5.8l3.4-2.6C37.5 17.6 33 14.5 27 14.5c-9.7 0-17.5 7.8-17.5 17.5S17.3 49.5 27 49.5c5.7 0 10.3-2.9 13.5-6.4l-3.3-2.7C34.7 43.6 31.4 46 27 46c-7.2 0-13-6.3-13-14z" fill={color}/>
-      <path d="M50 32c0 7.7-5.8 14-13 14-4.4 0-7.7-2.4-10.5-5.8l-3.3 2.7C26.4 46.6 31 49.5 36.7 49.5c9.7 0 17.5-7.8 17.5-17.5S46.4 14.5 36.7 14.5c-6 0-10.5 3.1-13.7 7.7l3.3 2.6C29 21.4 32.3 19 36.7 19c7.2 0 13.3 5.8 13.3 13z" fill={color}/>
-      <circle cx="48" cy="20" r="4" fill={color}/>
-    </svg>
+    <img
+      src="assets/airoclip-logo.png"
+      alt="Airoclip"
+      width={size}
+      height={size}
+      style={{display: 'block', borderRadius: 4}}
+    />
   );
 }
 
