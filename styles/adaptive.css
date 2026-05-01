@@ -1,0 +1,186 @@
+/* Secondary-page stylesheet — dark theme matching Studio direction.
+   Used by careers.html, privacy.html, terms.html for nav/footer/eyebrow/btn chrome.
+   Originally Direction B (Adaptive, light); recolored 2026-05-01 for production. */
+.adaptive {
+  --bg: #07070a;
+  --bg-2: #0e0e14;
+  --bg-3: #12121a;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, 0.78);
+  --ink-dim: rgba(255, 255, 255, 0.55);
+  --ink-faint: rgba(255, 255, 255, 0.4);
+  --brand: #1a40e8;
+  --brand-soft: rgba(26, 64, 232, 0.18);
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100%;
+}
+.adaptive .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.adaptive h1, .adaptive h2, .adaptive h3 { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.02em; }
+.adaptive .sans-h { font-family: 'Inter Tight', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
+
+/* Nav */
+.adaptive .nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(7,7,10,0.78);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+}
+.adaptive .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 17px; letter-spacing: -0.02em; font-family: 'Inter Tight', sans-serif; }
+.adaptive .nav-logo .mark { width: 26px; height: 26px; border-radius: 6px; background: var(--brand); display: grid; place-items: center; }
+.adaptive .nav-logo .mark svg { width: 16px; height: 16px; }
+.adaptive .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); }
+.adaptive .nav-links a:hover { color: var(--brand); }
+
+/* Buttons */
+.adaptive .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.18s ease; }
+.adaptive .btn-primary { background: var(--brand); color: #fff; }
+.adaptive .btn-primary:hover { background: #fff; color: #0a0a12; }
+.adaptive .btn-ghost { color: var(--ink); border: 1px solid var(--line-strong); }
+.adaptive .btn-ghost:hover { background: var(--bg-3); border-color: var(--ink); }
+
+/* Hero */
+.adaptive .hero { padding: 90px 40px 80px; position: relative; }
+.adaptive .hero-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: center; }
+.adaptive .hero-meta { display: flex; gap: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 36px; align-items: center; }
+.adaptive .hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: #2bb673; box-shadow: 0 0 0 3px rgba(43,182,115,0.18); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 3px rgba(43,182,115,0.18); } 50% { box-shadow: 0 0 0 6px rgba(43,182,115,0.06); } }
+.adaptive .hero h1 {
+  font-size: clamp(48px, 7.4vw, 104px);
+  line-height: 0.96; letter-spacing: -0.035em;
+  font-weight: 400; max-width: 880px;
+}
+.adaptive .hero h1 i { color: var(--brand); font-style: italic; font-family: 'Instrument Serif', serif; }
+.adaptive .hero-sub { margin-top: 32px; max-width: 540px; font-size: 18px; line-height: 1.55; color: var(--ink-2); }
+.adaptive .hero-actions { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Hero side card */
+.adaptive .hero-side { display: flex; flex-direction: column; gap: 14px; }
+.adaptive .hero-card {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px 24px;
+  position: relative;
+}
+.adaptive .hero-card .lbl { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 8px; }
+.adaptive .hero-card .val { font-size: 32px; font-family: 'Instrument Serif', serif; letter-spacing: -0.02em; }
+.adaptive .hero-card .sub { font-size: 13px; color: var(--ink-dim); margin-top: 4px; }
+.adaptive .hero-card .bar { height: 3px; background: var(--bg-2); border-radius: 2px; margin-top: 14px; overflow: hidden; }
+.adaptive .hero-card .bar > i { display: block; height: 100%; background: var(--brand); border-radius: 2px; }
+
+/* Marquee */
+.adaptive .marquee { padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg-3); }
+.adaptive .marquee-track { display: flex; gap: 56px; animation: marqA 40s linear infinite; white-space: nowrap; }
+.adaptive .marquee span { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.18em; }
+.adaptive .marquee span::before { content: "→"; margin-right: 56px; color: var(--brand); }
+@keyframes marqA { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Section */
+.adaptive .section { padding: 120px 40px; }
+.adaptive .section-inner { max-width: 1280px; margin: 0 auto; }
+.adaptive .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); margin-bottom: 22px; }
+.adaptive .eyebrow .num { color: var(--brand); }
+.adaptive .section-title { font-size: clamp(40px, 5.2vw, 72px); line-height: 1.02; letter-spacing: -0.03em; max-width: 900px; }
+.adaptive .section-title em { font-style: italic; color: var(--brand); }
+.adaptive .section-lede { margin-top: 24px; max-width: 620px; font-size: 18px; line-height: 1.55; color: var(--ink-2); }
+
+/* Tech grid */
+.adaptive .tech { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.adaptive .pillars { margin-top: 72px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg-3); }
+.adaptive .pillar { padding: 36px; border-right: 1px solid var(--line); position: relative; }
+.adaptive .pillar:last-child { border-right: none; }
+.adaptive .pillar .pn { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.1em; }
+.adaptive .pillar h3 { font-size: 28px; margin: 28px 0 12px; line-height: 1.1; }
+.adaptive .pillar p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; }
+.adaptive .pillar .ico { margin-top: 36px; width: 44px; height: 44px; border-radius: 10px; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; }
+
+/* Numbers */
+.adaptive .numbers { background: #0a0a12; color: #f4f4f7; padding: 100px 40px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.adaptive .numbers .num-grid { max-width: 1280px; margin: 56px auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.08); }
+.adaptive .numbers .num-cell { padding: 32px 28px; background: #0a0a12; }
+.adaptive .numbers .lbl { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
+.adaptive .numbers .val { font-size: 56px; font-family: 'Instrument Serif', serif; letter-spacing: -0.03em; line-height: 1; }
+.adaptive .numbers .val sup { color: #6f8bff; font-size: 28px; }
+.adaptive .numbers .meta { margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.6); }
+.adaptive .numbers .section-title { color: #fff; max-width: 800px; }
+.adaptive .numbers .eyebrow { color: rgba(255,255,255,0.5); }
+
+/* Games */
+.adaptive .game-row { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; padding: 64px 0; border-top: 1px solid var(--line); align-items: center; }
+.adaptive .game-row:last-of-type { border-bottom: 1px solid var(--line); }
+.adaptive .game-art {
+  border-radius: 20px; aspect-ratio: 4/3; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #2c1c63 0%, #4d2a8e 50%, #1a40e8 100%);
+  display: grid; place-items: center;
+}
+.adaptive .game-art.alt { background: linear-gradient(135deg, #0a1f4a 0%, #1a40e8 50%, #5b3ee8 100%); }
+.adaptive .game-art img { max-width: 70%; max-height: 70%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)); }
+.adaptive .game-info .gm-meta { display: flex; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 24px; }
+.adaptive .game-info h3 { font-size: 56px; line-height: 1; letter-spacing: -0.03em; margin-bottom: 18px; }
+.adaptive .game-info p { color: var(--ink-2); font-size: 16px; line-height: 1.55; max-width: 520px; margin-bottom: 28px; }
+.adaptive .game-stats { display: flex; gap: 36px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.adaptive .game-stats .v { font-size: 28px; font-family: 'Instrument Serif', serif; letter-spacing: -0.02em; }
+.adaptive .game-stats .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin-top: 4px; }
+.adaptive .game-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.adaptive .store-btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: #fff; font-size: 13px; font-weight: 500; transition: all 0.18s; }
+.adaptive .store-btn:hover { background: var(--brand); }
+
+/* Investors */
+.adaptive .investors-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.adaptive .inv {
+  padding: 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-3);
+  transition: all 0.18s;
+}
+.adaptive .inv:hover { border-color: var(--brand); transform: translateY(-2px); }
+.adaptive .inv .role { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--brand); margin-bottom: 14px; }
+.adaptive .inv .nm { font-size: 22px; font-family: 'Instrument Serif', serif; letter-spacing: -0.02em; }
+.adaptive .inv .desc { font-size: 13px; color: var(--ink-dim); margin-top: 8px; line-height: 1.5; }
+
+/* Careers */
+.adaptive .careers-banner { padding: 96px 40px; background: #0a0a12; color: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.adaptive .careers-banner .ci { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
+.adaptive .careers-banner h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.03em; color: #fff; }
+.adaptive .careers-banner h2 em { color: #6f8bff; font-style: italic; }
+.adaptive .careers-banner p { color: rgba(255,255,255,0.7); margin-top: 20px; font-size: 17px; max-width: 520px; line-height: 1.55; }
+.adaptive .careers-banner .btn-primary { background: var(--brand); color: #fff; margin-top: 28px; }
+.adaptive .careers-banner .btn-primary:hover { background: #fff; color: var(--ink); }
+.adaptive .role-list { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; overflow: hidden; }
+.adaptive .role-row { display: grid; grid-template-columns: 1.4fr 1fr 24px; align-items: center; padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.18s; }
+.adaptive .role-row:last-child { border-bottom: none; }
+.adaptive .role-row:hover { background: rgba(255,255,255,0.05); }
+.adaptive .role-row .rt { color: #fff; font-size: 15px; }
+.adaptive .role-row .rl { color: rgba(255,255,255,0.55); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; }
+.adaptive .role-row .ra { color: rgba(255,255,255,0.5); }
+
+/* Footer */
+.adaptive .footer { background: var(--bg-2); padding: 80px 40px 40px; border-top: 1px solid var(--line); }
+.adaptive .footer-inner { max-width: 1280px; margin: 0 auto; }
+.adaptive .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid var(--line); }
+.adaptive .footer-brand { max-width: 320px; }
+.adaptive .footer-brand p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; margin-top: 16px; }
+.adaptive .footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); margin-bottom: 18px; font-weight: 500; }
+.adaptive .footer-col a { display: block; font-size: 14px; color: var(--ink-2); margin-bottom: 12px; transition: color 0.15s; }
+.adaptive .footer-col a:hover { color: var(--brand); }
+.adaptive .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 12px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; flex-wrap: wrap; gap: 16px; }
+.adaptive .footer-legal { display: flex; gap: 20px; }
+.adaptive .footer-socials { display: flex; gap: 8px; }
+.adaptive .footer-socials a { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line-strong); display: grid; place-items: center; transition: all 0.18s; color: var(--ink-2); }
+.adaptive .footer-socials a:hover { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+@media (max-width: 900px) {
+  .adaptive .hero { padding: 60px 24px 50px; }
+  .adaptive .section, .adaptive .careers-banner, .adaptive .numbers { padding: 70px 24px; }
+  .adaptive .nav { padding: 16px 24px; }
+  .adaptive .nav-links { display: none; }
+  .adaptive .hero-inner, .adaptive .game-row, .adaptive .careers-banner .ci, .adaptive .footer-top, .adaptive .pillars, .adaptive .investors-grid, .adaptive .numbers .num-grid { grid-template-columns: 1fr; }
+  .adaptive .pillar { border-right: none; border-bottom: 1px solid var(--line); }
+  .adaptive .pillar:last-child { border-bottom: none; }
+  .adaptive .game-info h3 { font-size: 40px; }
+}
