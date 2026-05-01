@@ -12,6 +12,7 @@
   --ink-dim: rgba(255, 255, 255, 0.55);
   --ink-faint: rgba(255, 255, 255, 0.4);
   --brand: #1a40e8;
+  --brand-text: #6f8bff;
   --brand-soft: rgba(26, 64, 232, 0.18);
   font-family: 'Inter Tight', system-ui, sans-serif;
   background: var(--bg);
@@ -36,7 +37,7 @@
 .adaptive .nav-logo .mark { width: 26px; height: 26px; border-radius: 6px; background: var(--brand); display: grid; place-items: center; }
 .adaptive .nav-logo .mark svg { width: 16px; height: 16px; }
 .adaptive .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); }
-.adaptive .nav-links a:hover { color: var(--brand); }
+.adaptive .nav-links a:hover { color: var(--brand-text); }
 
 /* Buttons */
 .adaptive .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.18s ease; }
@@ -86,7 +87,7 @@
 .adaptive .section { padding: 120px 40px; }
 .adaptive .section-inner { max-width: 1280px; margin: 0 auto; }
 .adaptive .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); margin-bottom: 22px; }
-.adaptive .eyebrow .num { color: var(--brand); }
+.adaptive .eyebrow .num { color: var(--brand-text); }
 .adaptive .section-title { font-size: clamp(40px, 5.2vw, 72px); line-height: 1.02; letter-spacing: -0.03em; max-width: 900px; }
 .adaptive .section-title em { font-style: italic; color: var(--brand); }
 .adaptive .section-lede { margin-top: 24px; max-width: 620px; font-size: 18px; line-height: 1.55; color: var(--ink-2); }
@@ -139,7 +140,7 @@
   transition: all 0.18s;
 }
 .adaptive .inv:hover { border-color: var(--brand); transform: translateY(-2px); }
-.adaptive .inv .role { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--brand); margin-bottom: 14px; }
+.adaptive .inv .role { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--brand-text); margin-bottom: 14px; }
 .adaptive .inv .nm { font-size: 22px; font-family: 'Instrument Serif', serif; letter-spacing: -0.02em; }
 .adaptive .inv .desc { font-size: 13px; color: var(--ink-dim); margin-top: 8px; line-height: 1.5; }
 
@@ -165,10 +166,10 @@
 .adaptive .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid var(--line); }
 .adaptive .footer-brand { max-width: 320px; }
 .adaptive .footer-brand p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; margin-top: 16px; }
-.adaptive .footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); margin-bottom: 18px; font-weight: 500; }
+.adaptive .footer-col h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-dim); margin-bottom: 18px; font-weight: 500; }
 .adaptive .footer-col a { display: block; font-size: 14px; color: var(--ink-2); margin-bottom: 12px; transition: color 0.15s; }
-.adaptive .footer-col a:hover { color: var(--brand); }
-.adaptive .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 12px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; flex-wrap: wrap; gap: 16px; }
+.adaptive .footer-col a:hover { color: var(--brand-text); }
+.adaptive .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 12px; color: var(--ink-dim); font-family: 'JetBrains Mono', monospace; flex-wrap: wrap; gap: 16px; }
 .adaptive .footer-legal { display: flex; gap: 20px; }
 .adaptive .footer-socials { display: flex; gap: 8px; }
 .adaptive .footer-socials a { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line-strong); display: grid; place-items: center; transition: all 0.18s; color: var(--ink-2); }
