@@ -80,7 +80,6 @@ a{color:inherit;text-decoration:none}
   font-weight:800;
   font-size:clamp(48px, 7.6vw, 108px);
   line-height:.96;letter-spacing:-.035em;color:var(--accent);
-  text-transform:lowercase;
 }
 .hero h1 .pink{color:var(--pink)}
 .hero h1 .ink{color:var(--ink)}
@@ -142,7 +141,7 @@ a{color:inherit;text-decoration:none}
 .pcard.c5 .num{color:var(--pink)}
 .pcard h3{
   font-family:"DM Sans",sans-serif;font-weight:700;font-size:22px;
-  line-height:1.15;letter-spacing:-.02em;text-transform:lowercase;margin-bottom:8px;
+  line-height:1.15;letter-spacing:-.02em;margin-bottom:8px;
 }
 .pcard p{color:var(--ink-soft);font-size:14.5px;line-height:1.55}
 .pcard .pill{
@@ -154,6 +153,8 @@ a{color:inherit;text-decoration:none}
   padding:4px 8px;border-radius:999px;border:1px solid #C9D6FF;
 }
 .pcard .pill::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.pcard .pill.wip{background:var(--amber-tint);color:#8A5A00;border-color:#F0DDB5}
+.pcard .pill.wip::before{background:var(--amber)}
 /* on small screens: 2 per row */
 @media (max-width:1000px){
   .pillars-grid{grid-template-columns:repeat(2,1fr)}
@@ -190,7 +191,7 @@ a{color:inherit;text-decoration:none}
 .chapter-head h2{
   font-family:"DM Sans",sans-serif;font-weight:800;
   font-size:clamp(34px,4.6vw,60px);line-height:1.0;letter-spacing:-.03em;
-  text-transform:lowercase;max-width:920px;color:var(--ink);
+  max-width:920px;color:var(--ink);
 }
 .chapter-head h2 .accent{color:var(--accent)}
 .chapter.c2 .chapter-head h2 .accent{color:var(--pink)}
@@ -314,7 +315,7 @@ a{color:inherit;text-decoration:none}
 .sub-title{
   font-family:"DM Sans",sans-serif;font-weight:800;
   font-size:clamp(28px,3.6vw,42px);line-height:1.02;letter-spacing:-.025em;
-  margin-bottom:14px;color:var(--ink);text-transform:lowercase;
+  margin-bottom:14px;color:var(--ink);
 }
 .sub-title .accent{color:var(--amber)}
 .chapter.c2 .sub-title .accent{color:var(--pink)}
@@ -613,7 +614,7 @@ a{color:inherit;text-decoration:none}
   <section class="hero">
     <div>
       <div class="eyebrow">the toolkit</div>
-      <h1>the ai stack<br/>behind every game&nbsp;<span class="pink">we ship.</span></h1>
+      <h1>The AI stack<br/>behind every game&nbsp;<span class="pink">we ship.</span></h1>
       <p class="lede">
         <span class="airoclip">airoclip's</span> internal ai stack — built to compress weeks of
         manual work into hours. no-code qa automation, a <strong>30+ agent
@@ -631,29 +632,29 @@ a{color:inherit;text-decoration:none}
     <div class="pillars-grid">
       <a class="pcard c1" href="#automation">
         <div class="num">01</div>
-        <h3>qa automation tool</h3>
-        <p>drag-and-drop, no-code qa automation for unity games. end-to-end test flows in hours.</p>
+        <h3>QA Automation Tool</h3>
+        <p>Drag-and-drop, no-code QA automation for Unity games. End-to-end test flows in hours.</p>
       </a>
       <a class="pcard c2" href="#framework">
-        <span class="pill">live</span>
+        <span class="pill wip">wip</span>
         <div class="num">02</div>
-        <h3>ai dev framework</h3>
-        <p>30+ specialised ai agents covering plan, build, review, ship &amp; operate — every team, one layer.</p>
+        <h3>AI Dev Framework</h3>
+        <p>30+ specialised AI agents covering plan, build, review, ship &amp; operate — every team, one layer.</p>
       </a>
       <a class="pcard c3" href="#conversation">
         <div class="num">03</div>
-        <h3>conversation ai</h3>
-        <p>chat-driven analytics over bigquery. ask in english, get a schema-correct answer. a/b results on demand.</p>
+        <h3>Conversation AI</h3>
+        <p>Chat-driven analytics over BigQuery. Ask in English, get a schema-correct answer. A/B results on demand.</p>
       </a>
       <a class="pcard c4" href="#marketing">
         <div class="num">04</div>
-        <h3>performance marketing ai</h3>
-        <p>spot creative fatigue before it eats budget — per-creative, per-cohort, every night.</p>
+        <h3>Performance Marketing AI</h3>
+        <p>Spot creative fatigue before it eats budget — per-creative, per-cohort, every night.</p>
       </a>
       <a class="pcard c5" href="#productivity">
         <div class="num">05</div>
-        <h3>productivity suite</h3>
-        <p>image &amp; video pipeline, level generation &amp; solving — content at scale, balanced for play.</p>
+        <h3>Productivity Suite</h3>
+        <p>Image &amp; video pipeline, level generation &amp; solving — content at scale, balanced for play.</p>
       </a>
     </div>
   </section>
@@ -687,7 +688,7 @@ a{color:inherit;text-decoration:none}
       <div class="numeral">01</div>
       <div class="meta">
         <div class="kicker">pillar 01 — no-code qa automation</div>
-        <h2><span class="accent">qa automation tool</span> — drag, drop,<br/>automated in hours.</h2>
+        <h2><span class="accent">QA Automation Tool</span> — drag, drop,<br/>automated in hours.</h2>
         <p class="desc">
           a drag-and-drop qa automation engine that lets anyone in the studio — designers, qa,
           producers — automate an entire unity game's test flows in hours, with zero code. built
@@ -746,8 +747,8 @@ a{color:inherit;text-decoration:none}
       <div class="meta">
         <div class="kicker">pillar 02 — ai centralized development framework</div>
         <h2>
-          <span class="accent">airoaiframework</span> — one framework.<br/>every team. shared rigor.
-          <span class="status-pill">live · in production</span>
+          <span class="accent">AiroAIFramework</span> — One framework.<br/>Every team. Shared rigor.
+          <span class="upcoming-tag">Work in Progress</span>
         </h2>
         <p class="desc">
           a portfolio of <strong>30+ specialised ai agents</strong> covering the full mobile
@@ -801,7 +802,7 @@ a{color:inherit;text-decoration:none}
             </div>
             <div class="fw-arrow">↓ ↓ ↓ ↓ ↓ ↓</div>
             <div class="fw-core">
-              <div class="fw-name">airoaiframework</div>
+              <div class="fw-name">AiroAIFramework</div>
               <div class="fw-stats">30+ agents · role-aware · stack-aware · hooked</div>
             </div>
             <div class="fw-arrow">↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓</div>
@@ -819,8 +820,8 @@ a{color:inherit;text-decoration:none}
             </div>
           </div>
           <div class="framebar">
-            <span>airoaiframework · architecture map</span>
-            <span class="live"><span class="dot"></span>30+ agents · live</span>
+            <span>AiroAIFramework · architecture map</span>
+            <span class="live"><span class="dot"></span>30+ agents · in development</span>
           </div>
         </div>
         <p class="caption">// six teams in, one framework, nine stages out — the connective tissue of the studio.</p>
@@ -830,7 +831,7 @@ a{color:inherit;text-decoration:none}
     <!-- team coverage subsection -->
     <div class="subsection">
       <div class="sub-kicker">team coverage</div>
-      <h2 class="sub-title">what each team gets <span class="accent">back.</span></h2>
+      <h2 class="sub-title">What each team gets <span class="accent">back.</span></h2>
       <p class="sub-lede">role-aware outputs in the format your team expects — not generic ai responses. every team can describe what they need in normal english; the framework returns work that matches their workflow.</p>
 
       <div class="depts cols-3" style="margin-top:32px">
@@ -929,13 +930,13 @@ a{color:inherit;text-decoration:none}
     <!-- lifecycle stages subsection -->
     <div class="subsection">
       <div class="sub-kicker">lifecycle coverage</div>
-      <h2 class="sub-title">nine stages. <span class="accent">one consistent layer.</span></h2>
+      <h2 class="sub-title">Nine stages. <span class="accent">One consistent layer.</span></h2>
       <p class="sub-lede">from product idea to live-ops. each stage has its own protocol, checklist, and output format. each agent is invocable in plain english — no skill names to memorise.</p>
 
       <div class="tools" style="margin-top:32px">
         <div class="tool">
           <div class="num">01 / plan &amp; spec</div>
-          <h3>plan &amp; spec</h3>
+          <h3>Plan &amp; Spec</h3>
           <span class="vendor">5 agents</span>
           <p>turns intent into specs that can actually be built.</p>
           <ul>
@@ -947,7 +948,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">02 / decide</div>
-          <h3>decide &amp; prioritise</h3>
+          <h3>Decide &amp; Prioritise</h3>
           <span class="vendor">5 agents</span>
           <p>the trade-off layer — before code is written.</p>
           <ul>
@@ -959,7 +960,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">03 / build</div>
-          <h3>build</h3>
+          <h3>Build</h3>
           <span class="vendor">4 agents</span>
           <p>code with senior-unity discipline. tdd-led, trap-swept.</p>
           <ul>
@@ -971,7 +972,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">04 / analyse</div>
-          <h3>analyse &amp; investigate</h3>
+          <h3>Analyse &amp; Investigate</h3>
           <span class="vendor">4 agents · read-only</span>
           <p>forensics without changing code.</p>
           <ul>
@@ -983,7 +984,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">05 / review</div>
-          <h3>review &amp; verify</h3>
+          <h3>Review &amp; Verify</h3>
           <span class="vendor">6 agents · 2 hooked</span>
           <p>nothing ships without a checklist run against it.</p>
           <ul>
@@ -995,7 +996,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">06 / test</div>
-          <h3>test</h3>
+          <h3>Test</h3>
           <span class="vendor">4 agents</span>
           <p>qa rigour from the diff outward.</p>
           <ul>
@@ -1007,7 +1008,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">07 / ship</div>
-          <h3>ship &amp; roll out</h3>
+          <h3>Ship &amp; Roll Out</h3>
           <span class="vendor">4 agents</span>
           <p>plan the rollout and the rollback before anything launches.</p>
           <ul>
@@ -1019,7 +1020,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">08 / operate</div>
-          <h3>operate &amp; support</h3>
+          <h3>Operate &amp; Support</h3>
           <span class="vendor">6 agents</span>
           <p>incidents, players, support — handled end-to-end.</p>
           <ul>
@@ -1031,7 +1032,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">09 / learn</div>
-          <h3>learn &amp; remember</h3>
+          <h3>Learn &amp; Remember</h3>
           <span class="vendor">4 agents</span>
           <p>the framework gets smarter every session.</p>
           <ul>
@@ -1050,7 +1051,7 @@ a{color:inherit;text-decoration:none}
       <div class="numeral">03</div>
       <div class="meta">
         <div class="kicker">pillar 03 — chat-driven analytics</div>
-        <h2><span class="accent">conversation ai</span> — ask in english.<br/>get the answer from bigquery.</h2>
+        <h2><span class="accent">Conversation AI</span> — Ask in English.<br/>Get the answer from BigQuery.</h2>
         <p class="desc">
           an intelligent analytics agent that lets anyone in the studio query our game and
           product analytics by simply chatting with it. wired live into bigquery and grounded
@@ -1108,7 +1109,7 @@ a{color:inherit;text-decoration:none}
       <div class="numeral">04</div>
       <div class="meta">
         <div class="kicker">pillar 04 — performance marketing ai</div>
-        <h2><span class="accent">creative fatigue analysis</span> —<br/>spot it before it eats budget.</h2>
+        <h2><span class="accent">Creative Fatigue Analysis</span> —<br/>spot it before it eats budget.</h2>
         <p class="desc">
           a performance-marketing ai layer that detects when ad creatives stop earning their
           spend and recommends rotation, refresh, or retirement before the channel does.
@@ -1189,7 +1190,7 @@ a{color:inherit;text-decoration:none}
       <div class="numeral">05</div>
       <div class="meta">
         <div class="kicker">pillar 05 — content &amp; asset pipeline</div>
-        <h2><span class="accent">productivity suite</span> — content at scale,<br/>balanced for play.</h2>
+        <h2><span class="accent">Productivity Suite</span> — content at scale,<br/>balanced for play.</h2>
         <p class="desc">
           a modular, ai-powered pipeline built for image-heavy puzzle games like jigstory.
           turns a creative brief into a balanced, ship-ready level pack in a single working
@@ -1201,13 +1202,13 @@ a{color:inherit;text-decoration:none}
 
     <div class="subsection">
       <div class="sub-kicker">level production · the core</div>
-      <h2 class="sub-title">brief in, ship-ready <span class="accent">pack out.</span></h2>
+      <h2 class="sub-title">Brief in, ship-ready <span class="accent">pack out.</span></h2>
       <p class="sub-lede">images, balancing, and difficulty curves — handled by the pipeline, not by hand. every level pack ships at the same quality bar regardless of who touched it.</p>
 
       <div class="tools compact" style="margin-top:32px">
         <div class="tool">
           <div class="num">01 / image</div>
-          <h3>image generator</h3>
+          <h3>Image Generator</h3>
           <span class="vendor">nano banana ai</span>
           <p>bulk puzzle images with style consistency.</p>
           <ul>
@@ -1219,7 +1220,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">02 / image</div>
-          <h3>image enhancer</h3>
+          <h3>Image Enhancer</h3>
           <span class="vendor">local ai pipeline</span>
           <p>upscaled, sharpened, denoised to ship quality.</p>
           <ul>
@@ -1231,7 +1232,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">03 / level</div>
-          <h3>level generator</h3>
+          <h3>Level Generator</h3>
           <span class="vendor">procedural · ai-driven</span>
           <p>new layouts at scale from constraints.</p>
           <ul>
@@ -1243,7 +1244,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">04 / level</div>
-          <h3>level solver</h3>
+          <h3>Level Solver</h3>
           <span class="vendor">search + rl agent</span>
           <p>verifies solvability and optimal paths.</p>
           <ul>
@@ -1255,7 +1256,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">05 / gameplay</div>
-          <h3>moves calculator</h3>
+          <h3>Moves Calculator</h3>
           <span class="vendor">predictive · heuristic</span>
           <p>predicts optimal move counts per puzzle.</p>
           <ul>
@@ -1267,7 +1268,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">06 / video</div>
-          <h3>bulk compressor</h3>
+          <h3>Bulk Compressor</h3>
           <span class="vendor">mobile-first</span>
           <p>shrinks videos for mobile without quality loss.</p>
           <ul>
@@ -1279,7 +1280,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">07 / video</div>
-          <h3>break &amp; merge</h3>
+          <h3>Break &amp; Merge</h3>
           <span class="vendor">storytelling toolkit</span>
           <p>flexible video manipulation for narrative.</p>
           <ul>
@@ -1291,7 +1292,7 @@ a{color:inherit;text-decoration:none}
 
         <div class="tool">
           <div class="num">08 / glue</div>
-          <h3>pipeline utilities</h3>
+          <h3>Pipeline Utilities</h3>
           <span class="vendor">connective tissue</span>
           <p>downloader, renamer, merger, compressor.</p>
           <ul>
