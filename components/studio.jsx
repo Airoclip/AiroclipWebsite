@@ -230,8 +230,37 @@ function StudioSite({ tweaks = {} }) {
                 <div><div className="v"></div><div className="l"></div></div>
               </div>
               <div className="game-actions">
-                <a href="#" className="store-btn">▶ Google Play</a>
-                <a href="#" className="store-btn"> App Store</a>
+                <a
+                  href="https://apps.apple.com/in/app/tap-hexa-family-story-puzzle/id6752324163"
+                  target="_blank"
+                  rel="noopener"
+                  className="store-badge"
+                  aria-label="TAP Hexa on the App Store">
+                  <svg viewBox="0 0 384 512" width="26" height="26" aria-hidden="true">
+                    <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM256.4 84.5c25.5-30.3 23.2-57.9 22.5-67.8-22.6 1.3-48.7 15.4-63.6 32.7-16.4 18.6-26 41.6-23.9 67.3 24.4 1.9 46.7-10.6 65-32.2z" />
+                  </svg>
+                  <span className="bdg-stack">
+                    <span className="bdg-sm">Download on the</span>
+                    <span className="bdg-lg">App Store</span>
+                  </span>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.airo.ai.puzzle.game.hexa.away&hl=en_IN"
+                  target="_blank"
+                  rel="noopener"
+                  className="store-badge"
+                  aria-label="TAP Hexa on Google Play">
+                  <svg viewBox="0 0 512 512" width="24" height="26" aria-hidden="true">
+                    <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z" />
+                    <path fill="#ffce00" d="M104.6 499 325.3 277.7l60.1 60.1L104.6 499z" />
+                    <path fill="#ff3a44" d="M504.4 256 385.4 174.2l-60.1 60.1 21.7 21.7-21.7 21.7 60.1 60.1L504.4 256z" />
+                    <path fill="#00f076" d="m104.6 13 220.7 221.3-220.7 221.3c-7.9-3.5-14.4-12.5-14.4-21.6V34.6c0-9.1 6.5-18.1 14.4-21.6z" />
+                  </svg>
+                  <span className="bdg-stack">
+                    <span className="bdg-sm">GET IT ON</span>
+                    <span className="bdg-lg">Google Play</span>
+                  </span>
+                </a>
               </div>
             </div>
             <div className="game-art">
@@ -254,8 +283,37 @@ function StudioSite({ tweaks = {} }) {
                 <div><div className="v">Free</div><div className="l">To play</div></div>
               </div>
               <div className="game-actions">
-                <a href="#" className="store-btn">▶ Google Play</a>
-                <a href="#" className="store-btn"> App Store</a>
+                <a
+                  href="https://apps.apple.com/in/app/jigstory-solitaire-art-puzzle/id6755870807"
+                  target="_blank"
+                  rel="noopener"
+                  className="store-badge"
+                  aria-label="JigStory on the App Store">
+                  <svg viewBox="0 0 384 512" width="26" height="26" aria-hidden="true">
+                    <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM256.4 84.5c25.5-30.3 23.2-57.9 22.5-67.8-22.6 1.3-48.7 15.4-63.6 32.7-16.4 18.6-26 41.6-23.9 67.3 24.4 1.9 46.7-10.6 65-32.2z" />
+                  </svg>
+                  <span className="bdg-stack">
+                    <span className="bdg-sm">Download on the</span>
+                    <span className="bdg-lg">App Store</span>
+                  </span>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.airo.jigstory&hl=en_IN"
+                  target="_blank"
+                  rel="noopener"
+                  className="store-badge"
+                  aria-label="JigStory on Google Play">
+                  <svg viewBox="0 0 512 512" width="24" height="26" aria-hidden="true">
+                    <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z" />
+                    <path fill="#ffce00" d="M104.6 499 325.3 277.7l60.1 60.1L104.6 499z" />
+                    <path fill="#ff3a44" d="M504.4 256 385.4 174.2l-60.1 60.1 21.7 21.7-21.7 21.7 60.1 60.1L504.4 256z" />
+                    <path fill="#00f076" d="m104.6 13 220.7 221.3-220.7 221.3c-7.9-3.5-14.4-12.5-14.4-21.6V34.6c0-9.1 6.5-18.1 14.4-21.6z" />
+                  </svg>
+                  <span className="bdg-stack">
+                    <span className="bdg-sm">GET IT ON</span>
+                    <span className="bdg-lg">Google Play</span>
+                  </span>
+                </a>
               </div>
             </div>
             <div className="game-art">
