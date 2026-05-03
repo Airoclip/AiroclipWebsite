@@ -242,9 +242,8 @@ function StudioSite({ tweaks = {} }) {
           <div className="game-card alt">
             <div className="game-info">
               <div className="game-meta">
-                <span className="dot" style={{ background: '#5b2ee8' }}></span>
-                <span>Live · 2025</span>
-                <span>·</span>
+                <span>Live</span>
+                <span>Casual puzzle</span>
                 <span>iOS · Android</span>
               </div>
               <h3>JigStory</h3>
