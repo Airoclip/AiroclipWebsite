@@ -373,10 +373,7 @@ function StudioSite({ tweaks = {} }) {
               </a>
               <p>Crafting personalized gaming experiences. AI-powered casual puzzle games for global audiences, built from Bengaluru.</p>
               <div className="footer-socials" style={{ marginTop: 20 }}>
-                <a href="#" aria-label="X"><Social.X /></a>
-                <a href="#" aria-label="LinkedIn"><Social.In /></a>
-                <a href="#" aria-label="YouTube"><Social.Yt /></a>
-                <a href="#" aria-label="Instagram"><Social.Ig /></a>
+                <a href="https://www.linkedin.com/company/airoclip/" target="_blank" rel="noopener" aria-label="LinkedIn"><Social.In /></a>
               </div>
             </div>
             <div className="footer-col">
@@ -384,26 +381,24 @@ function StudioSite({ tweaks = {} }) {
               <a href="#tech">Technology</a>
               <a href="#games">Games</a>
               <a href="#investors">Investors</a>
-              <a href="careers.html">Careers</a>
+              <a href="#careers">Careers</a>
             </div>
             <div className="footer-col">
               <h5>Games</h5>
-              <a href="games/hexa-dreams.html">Hexa Dreams</a>
               <a href="games/tap-hexa.html">Tap Hexa</a>
-              <a href="#"></a>
+              <a href="#games">JigStory</a>
+              <a href="#games">All Games</a>
             </div>
             <div className="footer-col">
               <h5>Company</h5>
               <a href="#">About</a>
               <a href="news.html">News</a>
               <a href="mailto:info@airoclip.com">Contact</a>
-              <a href="mailto:info@airoclip.com"></a>
             </div>
             <div className="footer-col">
               <h5>Legal</h5>
               <a href="privacy-policy.html">Privacy Policy</a>
               <a href="terms-conditions.html">Terms of Service</a>
-              <a href="ads.txt">ads.txt</a>
             </div>
           </div>
           <div className="footer-bottom">
