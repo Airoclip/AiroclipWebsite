@@ -109,7 +109,7 @@
 /* Hero stats */
 .studio .hero-stats {
   margin-top: 80px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px;
   background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
 }
 .studio .hero-stat { padding: 24px 28px; background: var(--bg); }
@@ -234,7 +234,8 @@
   .studio .section { padding: 80px 24px; }
   .studio .nav { padding: 16px 24px; }
   .studio .nav-links { display: none; }
-  .studio .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .studio .hero-stat { padding: 20px 22px; }
+  .studio .hero-stat .value { font-size: 26px; }
   .studio .tech-grid, .studio .game-card, .studio .careers-banner, .studio .footer-top { grid-template-columns: 1fr; }
   .studio .game-card { padding: 36px 28px; }
   .studio .game-card h3 { font-size: 40px; }

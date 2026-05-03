@@ -134,7 +134,7 @@ function StudioSite({ tweaks = {} }) {
             </a>
           </div>
 
-          <div className="hero-stats" style={{ gridTemplateColumns: `repeat(${showFunding ? 4 : 3}, 1fr)` }}>
+          <div className="hero-stats">
             <div className="hero-stat">
               <div className="label">MAU</div>
               <div className="value">300K<sup>+</sup></div>
