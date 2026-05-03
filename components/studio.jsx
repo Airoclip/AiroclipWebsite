@@ -385,7 +385,7 @@ function StudioSite({ tweaks = {} }) {
             </div>
             <div className="footer-col">
               <h5>Games</h5>
-              <a href="games/tap-hexa.html">Tap Hexa</a>
+              <a href="#games">Tap Hexa</a>
               <a href="#games">JigStory</a>
               <a href="#games">All Games</a>
             </div>
