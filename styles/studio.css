@@ -238,5 +238,10 @@
   .studio .tech-grid, .studio .game-card, .studio .careers-banner, .studio .footer-top { grid-template-columns: 1fr; }
   .studio .game-card { padding: 36px 28px; }
   .studio .game-card h3 { font-size: 40px; }
-  .studio .careers-banner { margin: 0 24px 60px; padding: 40px 28px; }
+  .studio .careers-banner { margin: 0 24px 60px; padding: 40px 24px; }
+  .studio .careers-banner h2 { font-size: clamp(28px, 7vw, 42px) !important; max-width: 100% !important; }
+  .studio .careers-banner p { font-size: 15px; }
+  .studio .role-pill { flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px 16px; }
+  .studio .role-pill .loc { font-size: 11px; }
+  .studio .role-pill .arr { display: none; }
 }

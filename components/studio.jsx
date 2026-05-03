@@ -348,7 +348,7 @@ function StudioSite({ tweaks = {} }) {
       {/* CAREERS BANNER */}
       <div className="careers-banner" id="careers">
         <div>
-          <h2 style={{ width: "478px", fontSize: "42px" }}>Join us build games that millions of people love.</h2>
+          <h2 style={{ maxWidth: "478px", fontSize: "clamp(28px, 5.5vw, 42px)" }}>Join us build games that millions of people love.</h2>
           <p>We're hiring across game growth, design, engineering, and data. Bengaluru-based, global ambition.</p>
           <div className="ca">
             <a href="https://app.dover.com/jobs/airoclip" target="_blank" rel="noopener" className="btn" style={{ background: '#fff', color: '#0c1846' }}>See open roles →</a>
